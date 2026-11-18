@@ -7,8 +7,8 @@
 <meta name="description" content="ViVi's Glow Studio – Natural, luxurious permanent makeup for brows, eyeliner and lips. One-on-one consultation, custom design, long-lasting results.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=46">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&family=Great+Vibes&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=53">
 </head>
 <body>
 
@@ -18,13 +18,13 @@
     <a href="#top" class="logo">ViVi's <span>Glow</span> Studio</a>
     <nav class="nav" id="nav">
       <a href="#about">About</a>
-      <a href="#services">Services</a>
+      <a href="services.html">Services</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#reviews">Reviews</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
       <a href="tel:+17604846977" class="nav__phone" aria-label="Call now: 760-484-6977"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg><span>760-484-6977</span></a>
-      <a href="#contact" class="btn btn--gold nav__cta">Book Now</a>
+      <a href="#contact" class="btn btn--gold nav__cta" data-book>Book Now</a>
     </nav>
     <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
@@ -32,7 +32,97 @@
 
 <!-- ============ ẢNH BÌA ============ -->
 <section class="cover">
-  <img src="images/cover-main.webp" alt="ViVi's Glow Studio – Reveal your true radiance: brows, lashes, eyeliner, facial, lips and waxing" class="cover__single" width="1670" height="941">
+  <img src="images/cover-main.webp?v=2" alt="ViVi's Glow Studio – Reveal your true radiance: brows, lashes, eyeliner, facial, lips and waxing" class="cover__single" width="1670" height="942">
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="heading reveal">
+      <p class="eyebrow">Services</p>
+      <h2>Our Services</h2>
+      <p>Every treatment begins with a personal consultation, tailored to your features and lifestyle.</p>
+    </div>
+    <div class="grid grid--3">
+      <article class="service reveal">
+        <div class="service__img"><img src="images/svc-brows.jpg?v=2" alt="Brows"></div>
+        <div class="service__body">
+          <span class="service__time">2 hrs</span>
+          <h3>Brows</h3>
+          <p>Nano · Ombré · Combo — soft, natural brows shaped to your face, from hair-like strokes to a powdered finish.</p>
+          <div class="service__foot"><span class="price">from $399</span><a href="services.html?type=brows" class="service__link">View Menu →</a></div>
+        </div>
+      </article>
+      <article class="service reveal">
+        <div class="service__img"><img src="images/svc-lips.jpg?v=2" alt="Lips"></div>
+        <div class="service__body">
+          <span class="service__time">2 hrs</span>
+          <h3>Lips</h3>
+          <p>Blush · Ombré · Neutralize — rosy, fuller-looking lips that brighten dark tones and stay fresh all day.</p>
+          <div class="service__foot"><span class="price">from $449</span><a href="services.html?type=lips" class="service__link">View Menu →</a></div>
+        </div>
+      </article>
+      <article class="service reveal">
+        <div class="service__img"><img src="images/svc-lash.jpg?v=2" alt="Lash"></div>
+        <div class="service__body">
+          <span class="service__time">90 min</span>
+          <h3>Lash</h3>
+          <p>Classic · Hybrid · Volume — lash sets tailored to your eye shape, from subtle and natural to full glam.</p>
+          <div class="service__foot"><span class="price">from $135</span><a href="services.html?type=lash" class="service__link">View Menu →</a></div>
+        </div>
+      </article>
+      <article class="service reveal">
+        <div class="service__img"><img src="images/svc-facial.jpg?v=2" alt="Facial"></div>
+        <div class="service__body">
+          <span class="service__time">60 min</span>
+          <h3>Facial</h3>
+          <p>Rejuvenate & Glow — a deep cleanse, exfoliation and nourishing treatment for healthy, radiant skin.</p>
+          <div class="service__foot"><span class="price">from $89</span><a href="services.html?type=facial" class="service__link">View Menu →</a></div>
+        </div>
+      </article>
+      <article class="service reveal">
+        <div class="service__img"><img src="images/svc-waxing.jpg?v=2" alt="Waxing"></div>
+        <div class="service__body">
+          <span class="service__time">30 min</span>
+          <h3>Waxing</h3>
+          <p>Smooth & Confident — gentle, hygienic waxing that leaves skin soft and smooth for weeks.</p>
+          <div class="service__foot"><span class="price">from $15</span><a href="services.html?type=waxing" class="service__link">View Menu →</a></div>
+        </div>
+      </article>
+      <article class="service reveal">
+        <div class="service__img"><img src="images/svc-eyeliner.jpg?v=2" alt="Eyeliner"></div>
+        <div class="service__body">
+          <span class="service__time">1.5 hrs</span>
+          <h3>Eyeliner</h3>
+          <p>Classic · Permanent — defined, expressive eyes without drawing eyeliner every morning.</p>
+          <div class="service__foot"><span class="price">from $175</span><a href="services.html?type=eyeliner" class="service__link">View Menu →</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED: RIMAN FACIAL ============ -->
+<section class="section feature" id="facial">
+  <div class="container feature__inner">
+    <figure class="feature__img reveal"><img src="images/riman-facial.webp" alt="Signature Riman Facial at ViVi's Glow Studio" loading="lazy"><figcaption hidden>Signature Riman Facial</figcaption></figure>
+    <div class="feature__text reveal">
+      <p class="eyebrow">Featured Treatment</p>
+      <h2>Signature <em>Riman</em> Facial</h2>
+      <p class="feature__sub">Reveal Your Natural Beauty</p>
+      <p>A luxurious facial using the Riman Incellderm skincare line — cleansing, toning and nourishing steps that leave your skin fresh, hydrated and glowing.</p>
+      <ul class="feature__list">
+          <li><span class="lotus">❀</span>Deep Cleansing</li>
+          <li><span class="lotus">❀</span>Intense Hydration</li>
+          <li><span class="lotus">❀</span>Youthful Radiance</li>
+      </ul>
+      <div class="feature__ritual"><b>Boo See Boo Ritual</b><span>for healthy, glowing skin</span></div>
+      <div class="feature__btns">
+        <a href="#contact" class="btn btn--gold" data-book="Premium Riman Signature Facial">Book Your Facial</a>
+        <a href="tel:+17604846977" class="btn btn--outline">Call Now</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============ HERO ============ -->
@@ -43,7 +133,7 @@
       <h1>Natural beauty, <em>refined</em> in every detail</h1>
       <p class="hero__sub">Permanent brows, eyeliner and lips custom-designed for your face — gentle, long-lasting and effortlessly elegant.</p>
       <div class="hero__btns">
-        <a href="#contact" class="btn btn--gold">Book a Consultation</a>
+        <a href="#contact" class="btn btn--gold" data-book>Book a Consultation</a>
         <a href="tel:+17604846977" class="btn btn--outline">Call 760-484-6977</a>
       </div>
     </div>
@@ -77,29 +167,6 @@
   </div>
 </section>
 
-<!-- ============ FEATURED: RIMAN FACIAL ============ -->
-<section class="section feature" id="facial">
-  <div class="container feature__inner">
-    <figure class="feature__img reveal"><img src="images/riman-facial.webp" alt="Signature Riman Facial at ViVi's Glow Studio" loading="lazy"><figcaption hidden>Signature Riman Facial</figcaption></figure>
-    <div class="feature__text reveal">
-      <p class="eyebrow">Featured Treatment</p>
-      <h2>Signature <em>Riman</em> Facial</h2>
-      <p class="feature__sub">Reveal Your Natural Beauty</p>
-      <p>A luxurious facial using the Riman Incellderm skincare line — cleansing, toning and nourishing steps that leave your skin fresh, hydrated and glowing.</p>
-      <ul class="feature__list">
-          <li><span class="lotus">❀</span>Deep Cleansing</li>
-          <li><span class="lotus">❀</span>Intense Hydration</li>
-          <li><span class="lotus">❀</span>Youthful Radiance</li>
-      </ul>
-      <div class="feature__ritual"><b>Boo See Boo Ritual</b><span>for healthy, glowing skin</span></div>
-      <div class="feature__btns">
-        <a href="#contact" class="btn btn--gold">Book Your Facial</a>
-        <a href="tel:+17604846977" class="btn btn--outline">Call Now</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ STUDIO ============ -->
 <section class="section studio" id="studio">
   <div class="container">
@@ -121,157 +188,6 @@
       <figure class="reveal"><img src="images/studio-4.webp" alt="Personal care for every client" loading="lazy"><figcaption>Personal care for every client</figcaption></figure>
       <figure class="reveal"><img src="images/studio-5.webp" alt="A spa-like space to unwind" loading="lazy"><figcaption>A spa-like space to unwind</figcaption></figure>
       <figure class="reveal"><img src="images/studio-6.webp" alt="Calm, focused work" loading="lazy"><figcaption>Calm, focused work</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHY ============ -->
-<section class="section why">
-  <div class="container">
-    <div class="why__head reveal">
-      <p class="eyebrow">Why Choose ViVi's Glow</p>
-      <h2>Crafted for Your Glow</h2>
-    </div>
-    <div class="why-grid">
-      <article class="why-card reveal">
-        <div class="why-card__img"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&q=80" alt="One-on-One Care"></div>
-        <div class="why-card__body">
-          <div class="why-card__top"><h3>One-on-One Care</h3><span class="why-card__num">01</span></div>
-          <p>ViVi personally consults, performs and follows up with every client — from the first sketch to the final healed result.</p>
-        </div>
-      </article>
-      <article class="why-card reveal">
-        <div class="why-card__img"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" alt="Tailored Design"></div>
-        <div class="why-card__body">
-          <div class="why-card__top"><h3>Tailored Design</h3><span class="why-card__num">02</span></div>
-          <p>Every brow shape, lash line and lip color is mapped and sketched to suit your face, skin tone and personal style.</p>
-        </div>
-      </article>
-      <article class="why-card reveal">
-        <div class="why-card__img"><img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&q=80" alt="Natural & Long-Lasting"></div>
-        <div class="why-card__body">
-          <div class="why-card__top"><h3>Natural & Long-Lasting</h3><span class="why-card__num">03</span></div>
-          <p>Gentle, low-discomfort techniques with soft, natural-looking color that stays beautiful for 1–3 years.</p>
-        </div>
-      </article>
-      <article class="why-card reveal">
-        <div class="why-card__img"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80" alt="Premium Pigments"></div>
-        <div class="why-card__body">
-          <div class="why-card__top"><h3>Premium Pigments</h3><span class="why-card__num">04</span></div>
-          <p>Only high-quality imported pigments that heal true to tone — no harsh, unnatural or discolored results.</p>
-        </div>
-      </article>
-      <article class="why-card reveal">
-        <div class="why-card__img"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&q=80" alt="Sterile & Safe"></div>
-        <div class="why-card__body">
-          <div class="why-card__top"><h3>Sterile & Safe</h3><span class="why-card__num">05</span></div>
-          <p>Single-use needles and tools with strict sterilization standards, so you can relax with complete peace of mind.</p>
-        </div>
-      </article>
-      <article class="why-card reveal">
-        <div class="why-card__img"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&q=80" alt="Complimentary Touch-Up"></div>
-        <div class="why-card__body">
-          <div class="why-card__top"><h3>Complimentary Touch-Up</h3><span class="why-card__num">06</span></div>
-          <p>Every treatment includes a perfecting touch-up session and caring aftercare support while you heal.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section class="section services" id="services">
-  <div class="container">
-    <div class="heading reveal">
-      <p class="eyebrow">Services</p>
-      <h2>Our Services</h2>
-      <p>Every treatment begins with a personal consultation, tailored to your features and lifestyle.</p>
-    </div>
-    <div class="grid grid--3">
-      <article class="service reveal">
-        <div class="service__img"><img src="images/svc-brows.jpg?v=2" alt="Brows"></div>
-        <div class="service__body">
-          <span class="service__time">2 hrs</span>
-          <h3>Brows</h3>
-          <p>Nano · Ombré · Combo — soft, natural brows shaped to your face, from hair-like strokes to a powdered finish.</p>
-          <div class="service__foot"><span class="price">Inquire</span><a href="#contact">Book →</a></div>
-        </div>
-      </article>
-      <article class="service reveal">
-        <div class="service__img"><img src="images/svc-lips.jpg?v=2" alt="Lips"></div>
-        <div class="service__body">
-          <span class="service__time">2 hrs</span>
-          <h3>Lips</h3>
-          <p>Blush · Ombré · Neutralize — rosy, fuller-looking lips that brighten dark tones and stay fresh all day.</p>
-          <div class="service__foot"><span class="price">Inquire</span><a href="#contact">Book →</a></div>
-        </div>
-      </article>
-      <article class="service reveal">
-        <div class="service__img"><img src="images/svc-lash.jpg?v=2" alt="Lash"></div>
-        <div class="service__body">
-          <span class="service__time">90 min</span>
-          <h3>Lash</h3>
-          <p>Classic · Hybrid · Volume — lash sets tailored to your eye shape, from subtle and natural to full glam.</p>
-          <div class="service__foot"><span class="price">Inquire</span><a href="#contact">Book →</a></div>
-        </div>
-      </article>
-      <article class="service reveal">
-        <div class="service__img"><img src="images/svc-facial.jpg?v=2" alt="Facial"></div>
-        <div class="service__body">
-          <span class="service__time">60 min</span>
-          <h3>Facial</h3>
-          <p>Rejuvenate & Glow — a deep cleanse, exfoliation and nourishing treatment for healthy, radiant skin.</p>
-          <div class="service__foot"><span class="price">Inquire</span><a href="#contact">Book →</a></div>
-        </div>
-      </article>
-      <article class="service reveal">
-        <div class="service__img"><img src="images/svc-waxing.jpg?v=2" alt="Waxing"></div>
-        <div class="service__body">
-          <span class="service__time">30 min</span>
-          <h3>Waxing</h3>
-          <p>Smooth & Confident — gentle, hygienic waxing that leaves skin soft and smooth for weeks.</p>
-          <div class="service__foot"><span class="price">Inquire</span><a href="#contact">Book →</a></div>
-        </div>
-      </article>
-      <article class="service reveal">
-        <div class="service__img"><img src="images/svc-eyeliner.jpg?v=2" alt="Eyeliner"></div>
-        <div class="service__body">
-          <span class="service__time">1.5 hrs</span>
-          <h3>Eyeliner</h3>
-          <p>Classic · Permanent — defined, expressive eyes without drawing eyeliner every morning.</p>
-          <div class="service__foot"><span class="price">Inquire</span><a href="#contact">Book →</a></div>
-        </div>
-      </article>
-      <article class="service service--brow reveal">
-        <div class="service__img"><img src="images/svc-nano.jpg?v=2" alt="Nano Hairstroke"></div>
-        <div class="service__body">
-          <span class="service__time">2.5 hrs</span>
-          <h3>Nano Hairstroke</h3>
-          <p>Ultra-fine, hair-like strokes drawn one by one for the most natural, feathery brows — ideal for filling sparse areas.</p>
-          <span class="service__touch">Touch-up 6–8 weeks · <b>$150</b></span>
-          <div class="service__foot"><span class="price">$499</span><a href="#contact">Book →</a></div>
-        </div>
-      </article>
-      <article class="service service--brow reveal">
-        <div class="service__img"><img src="images/svc-ombre.jpg?v=2" alt="Ombré (Shading)"></div>
-        <div class="service__body">
-          <span class="service__time">2 hrs</span>
-          <h3>Ombré (Shading)</h3>
-          <p>A soft powdered gradient — lighter at the front, richer at the tail — for a polished, makeup-ready look on all skin types.</p>
-          <span class="service__touch">Touch-up 6–8 weeks · <b>$100</b></span>
-          <div class="service__foot"><span class="price">$399</span><a href="#contact">Book →</a></div>
-        </div>
-      </article>
-      <article class="service service--brow reveal">
-        <div class="service__img"><img src="images/svc-combo.jpg?v=2" alt="Combo (Nano + Ombré)"></div>
-        <div class="service__body">
-          <span class="service__time">2.5 hrs</span>
-          <h3>Combo (Nano + Ombré)</h3>
-          <p>Hair strokes at the front with soft shading through the body and tail — natural dimension with lasting definition.</p>
-          <span class="service__touch">Touch-up 6–8 weeks · <b>$150</b></span>
-          <div class="service__foot"><span class="price">$499</span><a href="#contact">Book →</a></div>
-        </div>
-      </article>
     </div>
   </div>
 </section>
@@ -351,7 +267,8 @@
         <li><b>Opening Hours</b>Mon – Sat: 9:00 AM – 7:00 PM<br>Sun: by appointment</li>
       </ul>
       <div class="contact__btns">
-        <a href="tel:+17604846977" class="btn btn--gold">Call to Book</a>
+        <a href="#contact" class="btn btn--gold" data-book>Book Appointment</a>
+        <a href="tel:+17604846977" class="btn btn--sage">Call to Book</a>
         <a href="sms:+17604846977" class="btn btn--light">Text Us</a>
       </div>
       <div class="social social--contact"><a href="https://www.facebook.com/ViviGlowStudio" target="_blank" rel="noopener" aria-label="Facebook" class="social__link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></svg><span>Facebook</span></a><a href="https://www.instagram.com/vivisglowstudio" target="_blank" rel="noopener" aria-label="Instagram" class="social__link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zm6.1-8.1a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM21 8.1c-.1-1.5-.4-2.8-1.5-3.9S17.1 2.8 15.6 2.7C14.1 2.6 9.9 2.6 8.4 2.7 6.9 2.8 5.6 3.1 4.5 4.2S3.1 6.6 3 8.1c-.1 1.5-.1 5.7 0 7.2.1 1.5.4 2.8 1.5 3.9s2.4 1.4 3.9 1.5c1.5.1 5.7.1 7.2 0 1.5-.1 2.8-.4 3.9-1.5s1.4-2.4 1.5-3.9c.1-1.5.1-5.7 0-7.2zm-2 9.1c-.3.8-1 1.5-1.8 1.8-1.3.5-4.3.4-5.7.4s-4.4.1-5.7-.4c-.8-.3-1.5-1-1.8-1.8-.5-1.3-.4-4.3-.4-5.7s-.1-4.4.4-5.7c.3-.8 1-1.5 1.8-1.8 1.3-.5 4.3-.4 5.7-.4s4.4-.1 5.7.4c.8.3 1.5 1 1.8 1.8.5 1.3.4 4.3.4 5.7s.1 4.4-.4 5.7z"/></svg><span>Instagram</span></a></div>
@@ -373,7 +290,7 @@
     </div>
     <div>
       <h4>Services</h4>
-      <a href="#services">Permanent Brows</a><a href="#services">Lip Blush</a><a href="#services">Eyeliner</a>
+      <a href="services.html?type=brows">Brows</a><a href="services.html?type=lips">Lips</a><a href="services.html?type=lash">Lash</a><a href="services.html?type=facial">Facial</a><a href="services.html?type=waxing">Waxing</a><a href="services.html?type=eyeliner">Eyeliner</a>
     </div>
     <div>
       <h4>Follow Us</h4>
@@ -386,6 +303,6 @@
 <!-- Nút gọi nổi -->
 <a href="tel:+17604846977" class="float-call" aria-label="Call now: 760-484-6977"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg><span class="float-call__num">760-484-6977</span></a>
 
-<script src="script.js?v=46"></script>
+<script src="script.js?v=49"></script>
 </body>
 </html>

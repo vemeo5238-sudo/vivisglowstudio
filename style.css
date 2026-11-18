@@ -652,3 +652,147 @@ body{font-weight:400;letter-spacing:-.005em}
        padding:90px 24px 40px;overflow-y:auto;box-shadow:-10px 0 30px -10px rgba(40,41,35,.25)}
   .header.menu-open{background:var(--beige)}
 }
+
+/* ===== Thẻ dịch vụ bấm được (trang chủ) ===== */
+.service{position:relative}
+.service__link::after{content:"";position:absolute;inset:0;z-index:1}
+
+/* ===== Gói thành viên lash + khung đặt lịch ===== */
+.member{border:2px solid var(--glow-line)!important;box-shadow:var(--under)}
+.member{background:var(--sage);color:var(--beige);border-radius:var(--radius);padding:40px;margin-top:40px}
+.member h3{color:var(--white);font-size:1.9rem;text-align:center}
+.member__sub{text-align:center;font-family:var(--script);font-size:1.7rem;color:#f3dfae;margin-bottom:26px}
+.member__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.member__card{background:rgba(255,253,249,.1);border:1px solid rgba(243,223,174,.6);border-radius:14px;padding:22px;text-align:center}
+.member__card h4{color:var(--white);font-size:1.4rem;letter-spacing:.08em}
+.member__card p{margin:0 0 6px;font-size:.88rem}
+.member__card s{opacity:.75}
+.member__card b{display:block;font-family:var(--serif);font-size:2.1rem;color:#f3dfae;line-height:1.1;margin:6px 0 8px}
+.member__card em{font-style:normal;font-size:.82rem;background:var(--beige);color:var(--black);padding:3px 12px;border-radius:20px}
+.member__perks{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 26px;margin-top:26px;font-size:.9rem}
+.member__perks li::before{content:"✓ ";color:#f3dfae}
+.member__note{text-align:center;font-size:.85rem;margin-top:18px;opacity:.9}
+.book-band{background:var(--beige-light);text-align:center}
+.book-band h2{margin-bottom:10px}
+.book-band p{margin-bottom:26px}
+.book-band .contact__btns{justify-content:center}
+.book-band .social{justify-content:center;margin-top:22px}
+.crumbs{font-size:.82rem;color:var(--sage);margin-bottom:18px;letter-spacing:.04em}
+.crumbs a{color:var(--sage-dark);font-weight:500}
+@media (max-width:1024px){.member__grid{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.member__grid{grid-template-columns:1fr}.member{padding:28px 18px}}
+
+/* ===== TRANG SERVICES (kiểu Treatment Menu) ===== */
+.nav a.is-current{color:var(--gold-dark)}
+.nav a.is-current::after{width:100%}
+.svc-hero{padding:150px 0 60px;background:radial-gradient(ellipse at 50% 30%,var(--beige-light) 0%,var(--beige) 70%);text-align:center}
+.svc-hero__inner{max-width:760px}
+.svc-hero .crumbs{text-transform:uppercase;letter-spacing:.12em;font-size:.75rem}
+.svc-hero h1{font-size:clamp(2.8rem,7vw,4.8rem);font-weight:500;line-height:1.05}
+.svc-hero h1 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--gold-dark)}
+.svc-hero__lotus{display:block;color:var(--gold);font-size:1.6rem;margin:16px 0}
+.svc-hero__lead{font-size:1.08rem;max-width:600px;margin:0 auto 20px}
+.svc-hero__link{color:var(--gold-dark);font-weight:500;border-bottom:1px solid var(--gold);padding-bottom:2px}
+.svc-hero__link:hover{color:var(--sage-dark)}
+
+.svc-menu{background:var(--beige);padding:10px 0 90px;scroll-margin-top:70px}
+.filter{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;padding-bottom:22px;border-bottom:1px solid rgba(117,131,108,.25);margin-bottom:18px}
+.filter__btn{font-family:var(--sans);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--black);background:rgba(255,253,249,.6);border:1.5px solid var(--glow-line);padding:11px 26px;border-radius:50px;cursor:pointer;transition:.3s;box-shadow:var(--under)}
+.filter__btn:hover{border-color:var(--gold)}
+.filter__btn.is-active{background:var(--sage);color:var(--white)}
+.svc-count{text-align:center;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-bottom:34px}
+
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.tcard{background:var(--beige-light);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;
+  border:2px solid var(--glow-line);box-shadow:var(--under);animation:tcardIn .5s ease both;transition:transform .35s}
+.tcard:hover{transform:translateY(-4px);box-shadow:var(--under-strong)}
+@keyframes tcardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.tcard__media{position:relative;overflow:hidden}
+.tcard__media img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:.6s}
+.tcard:hover .tcard__media img{transform:scale(1.05)}
+.tcard__tag,.tcard__badge{position:absolute;top:14px;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:5px 14px;border-radius:30px}
+.tcard__tag{left:14px;background:rgba(40,41,35,.72);color:var(--white)}
+.tcard__badge{right:14px;background:var(--gold);color:var(--white);border:1px solid var(--glow-line)}
+.tcard__body{padding:24px 26px 26px;display:flex;flex-direction:column;flex:1}
+.tcard h3{font-size:1.55rem;margin-bottom:6px}
+.tcard__meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:12px}
+.tcard__meta i{width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.tcard__meta b{font-family:var(--serif);font-size:1.5rem;letter-spacing:0;text-transform:none;color:var(--gold-dark);font-weight:700}
+.tcard p{font-size:.93rem;margin-bottom:14px}
+.tcard__more{border-top:1px solid rgba(117,131,108,.25);padding-top:10px;margin-bottom:6px}
+.tcard__more summary{cursor:pointer;list-style:none;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--sage-dark);display:flex;justify-content:space-between}
+.tcard__more summary::-webkit-details-marker{display:none}
+.tcard__more summary::after{content:"+";display:inline-block;font-size:1.1rem;color:var(--gold-dark);transition:.3s}
+.tcard__more[open] summary::after{transform:rotate(45deg)}
+.tcard__more ul{list-style:none;padding:8px 0 0;margin:0}
+.tcard__more li{position:relative;padding:5px 0 5px 22px;font-size:.88rem;color:var(--black)}
+.tcard__more li::before{content:"❀";position:absolute;left:0;color:var(--gold);font-size:.8rem;top:6px}
+.tcard__actions{margin-top:auto;padding-top:14px}
+.tcard__actions .btn{width:100%;padding:11px 20px}
+
+.svc-member{background:var(--beige-light);padding:70px 0}
+.svc-member .member{margin-top:0}
+.svc-prices{background:var(--beige)}
+.pricelist{columns:2;column-gap:40px;margin-top:30px}
+.pgroup{break-inside:avoid;margin-bottom:30px;background:var(--white);border:2px solid var(--glow-line);box-shadow:var(--under);padding:26px 28px 16px;border-radius:var(--radius)}
+.pgroup h3{font-size:1.6rem;margin-bottom:2px}
+.pgroup__note{font-size:.8rem;color:var(--gold-dark);letter-spacing:.04em;margin-bottom:4px}
+.pgroup ul{list-style:none;padding:0;margin:8px 0 0}
+.pgroup li{display:flex;align-items:baseline;gap:8px;padding:10px 0;border-bottom:1px dashed rgba(117,131,108,.3);font-size:.95rem}
+.pgroup li:last-child{border-bottom:0}
+.pitem__name{color:var(--black);font-weight:400}
+.pitem__name small{display:block;font-size:.76rem;color:var(--sage);letter-spacing:.03em}
+.pitem__dots{flex:1;border-bottom:1px dotted var(--gold);transform:translateY(-4px);min-width:16px}
+.pitem__price{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--gold-dark);white-space:nowrap}
+.pricelist__note{text-align:center;font-size:.92rem;margin-top:6px}
+.pricelist__note a{color:var(--gold-dark);font-weight:600}
+
+@media (max-width:1024px){.tgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:700px){
+  .svc-hero{padding:120px 0 40px}
+  .filter{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none;margin-inline:-4%;padding-inline:4%;padding-top:4px;padding-bottom:20px}
+  .filter::-webkit-scrollbar{display:none}
+  .filter__btn{flex-shrink:0;padding:10px 20px}
+  .tgrid{grid-template-columns:1fr;gap:24px}
+  .pricelist{columns:1}
+  .pgroup{padding:22px 18px 12px}
+}
+@media (prefers-reduced-motion:reduce){.tcard{animation:none}}
+
+/* ===== Chữ số giá: Roboto ===== */
+.price,.tcard__meta b,.pitem__price,.member__card b,.service__touch b{
+  font-family:'Roboto',var(--sans)!important;font-weight:500;letter-spacing:0;font-variant-numeric:lining-nums
+}
+.price{font-size:1.2rem}
+.tcard__meta b{font-size:1.3rem}
+.pitem__price{font-size:1.05rem}
+.member__card b{font-size:1.8rem}
+
+/* ===== Popup đặt lịch ===== */
+.bmodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.bmodal.is-open{display:flex}
+.bmodal__backdrop{position:absolute;inset:0;background:rgba(40,41,35,.6);backdrop-filter:blur(3px);animation:bFade .3s}
+.bmodal__box{position:relative;width:min(520px,100%);max-height:92vh;overflow-y:auto;background:var(--beige-light);border:2px solid var(--glow-line);
+  border-radius:var(--radius);box-shadow:var(--under-strong),0 30px 60px -20px rgba(0,0,0,.4);padding:40px 36px 30px;animation:bUp .35s ease}
+.bmodal__box h2{font-size:2.2rem;margin-bottom:18px}
+.bmodal__close{position:absolute;top:10px;right:16px;background:none;border:0;font-size:2rem;line-height:1;cursor:pointer;color:var(--black)}
+.bmodal__close:hover{color:var(--gold-dark)}
+.bform{display:grid;gap:14px}
+.bform label{display:grid;gap:6px;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--sage-dark)}
+.bform input,.bform select,.bform textarea{font:400 1rem var(--sans);color:var(--black);background:var(--white);border:1.5px solid rgba(117,131,108,.35);
+  border-radius:10px;padding:12px 14px;width:100%;letter-spacing:0;text-transform:none;transition:.2s}
+.bform input:focus,.bform select:focus,.bform textarea:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(197,164,109,.2)}
+.bform__row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bform .btn{margin-top:6px}
+.bform__hint{font-size:.82rem;color:var(--sage-dark);text-align:center;margin:0}
+.bform__hint a{color:var(--gold-dark);font-weight:600}
+.bdone{text-align:center;display:grid;gap:14px;justify-items:center}
+.bdone h3{font-size:2rem}
+.bdone[hidden],.bform[hidden]{display:none}
+@keyframes bFade{from{opacity:0}}
+@keyframes bUp{from{opacity:0;transform:translateY(24px)}}
+@media (max-width:600px){
+  .bmodal{padding:0;align-items:flex-end}
+  .bmodal__box{border-radius:18px 18px 0 0;padding:34px 20px 24px;max-height:92vh}
+  .bmodal__box h2{font-size:1.9rem}
+}

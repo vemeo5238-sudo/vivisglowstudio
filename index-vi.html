@@ -7,8 +7,8 @@
 <meta name="description" content="ViVi's Glow Studio – Phun mày, mí, môi tự nhiên, sang trọng. Tư vấn 1–1, thiết kế theo khuôn mặt, kết quả bền đẹp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=46">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&family=Great+Vibes&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=53">
 </head>
 <body>
 
@@ -18,13 +18,13 @@
     <a href="#top" class="logo">ViVi's <span>Glow</span> Studio</a>
     <nav class="nav" id="nav">
       <a href="#about">Về ViVi</a>
-      <a href="#services">Dịch vụ</a>
+      <a href="services.html">Dịch vụ</a>
       <a href="#portfolio">Hình ảnh</a>
       <a href="#reviews">Đánh giá</a>
       <a href="#faq">Hỏi đáp</a>
       <a href="#contact">Liên hệ</a>
       <a href="tel:+17604846977" class="nav__phone" aria-label="Gọi ngay: 760-484-6977"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg><span>760-484-6977</span></a>
-      <a href="#contact" class="btn btn--gold nav__cta">Đặt lịch</a>
+      <a href="#contact" class="btn btn--gold nav__cta" data-book>Đặt lịch</a>
     </nav>
     <button class="burger" id="burger" aria-label="Mở menu"><span></span><span></span><span></span></button>
   </div>
@@ -32,7 +32,97 @@
 
 <!-- ============ ẢNH BÌA ============ -->
 <section class="cover">
-  <img src="images/cover-main.webp" alt="ViVi's Glow Studio – Tỏa sáng vẻ đẹp thật của bạn: mày, mi, mí, chăm sóc da, môi và waxing" class="cover__single" width="1670" height="941">
+  <img src="images/cover-main.webp?v=2" alt="ViVi's Glow Studio – Tỏa sáng vẻ đẹp thật của bạn: mày, mi, mí, chăm sóc da, môi và waxing" class="cover__single" width="1670" height="942">
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="heading reveal">
+      <p class="eyebrow">Dịch vụ</p>
+      <h2>Dịch vụ tại Studio</h2>
+      <p>Mỗi dịch vụ đều bắt đầu bằng buổi tư vấn riêng, phù hợp với gương mặt và phong cách của bạn.</p>
+    </div>
+    <div class="grid grid--3">
+      <article class="service reveal">
+        <div class="service__img"><img src="images/svc-brows.jpg?v=2" alt="Mày"></div>
+        <div class="service__body">
+          <span class="service__time">2 giờ</span>
+          <h3>Mày</h3>
+          <p>Nano · Ombré · Combo — dáng mày mềm mại, tự nhiên theo khuôn mặt, từ sợi mảnh đến hiệu ứng phấn.</p>
+          <div class="service__foot"><span class="price">from $399</span><a href="services.html?type=brows" class="service__link">Xem bảng giá →</a></div>
+        </div>
+      </article>
+      <article class="service reveal">
+        <div class="service__img"><img src="images/svc-lips.jpg?v=2" alt="Môi"></div>
+        <div class="service__body">
+          <span class="service__time">2 giờ</span>
+          <h3>Môi</h3>
+          <p>Blush · Ombré · Khử thâm — môi hồng căng mọng, sáng màu và giữ vẻ tươi tắn cả ngày.</p>
+          <div class="service__foot"><span class="price">from $449</span><a href="services.html?type=lips" class="service__link">Xem bảng giá →</a></div>
+        </div>
+      </article>
+      <article class="service reveal">
+        <div class="service__img"><img src="images/svc-lash.jpg?v=2" alt="Mi"></div>
+        <div class="service__body">
+          <span class="service__time">90 phút</span>
+          <h3>Mi</h3>
+          <p>Classic · Hybrid · Volume — nối mi theo dáng mắt, từ nhẹ nhàng tự nhiên đến dày quyến rũ.</p>
+          <div class="service__foot"><span class="price">from $135</span><a href="services.html?type=lash" class="service__link">Xem bảng giá →</a></div>
+        </div>
+      </article>
+      <article class="service service--facial reveal">
+        <div class="service__img"><img src="images/svc-facial-riman.jpg" alt="Chăm sóc da Riman"></div>
+        <div class="service__body">
+          <span class="service__time">60 phút</span>
+          <h3>Chăm sóc da Riman</h3>
+          <p>Làm sạch sâu, cấp ẩm chuyên sâu và trẻ hóa làn da — liệu trình Boo See Boo với Riman Incellderm cho làn da khỏe, rạng rỡ.</p>
+          <div class="service__foot"><span class="price">from $89</span><a href="services.html?type=facial" class="service__link">Xem bảng giá →</a></div>
+        </div>
+      </article>
+      <article class="service reveal">
+        <div class="service__img"><img src="images/svc-waxing.jpg?v=2" alt="Waxing"></div>
+        <div class="service__body">
+          <span class="service__time">30 phút</span>
+          <h3>Waxing</h3>
+          <p>Mịn màng & Tự tin — wax nhẹ nhàng, vệ sinh, da mềm mịn trong nhiều tuần.</p>
+          <div class="service__foot"><span class="price">from $15</span><a href="services.html?type=waxing" class="service__link">Xem bảng giá →</a></div>
+        </div>
+      </article>
+      <article class="service reveal">
+        <div class="service__img"><img src="images/svc-eyeliner.jpg?v=2" alt="Mí mắt"></div>
+        <div class="service__body">
+          <span class="service__time">1.5 giờ</span>
+          <h3>Mí mắt</h3>
+          <p>Classic · Permanent — đôi mắt sắc nét, có hồn mà không cần kẻ mắt mỗi sáng.</p>
+          <div class="service__foot"><span class="price">from $175</span><a href="services.html?type=eyeliner" class="service__link">Xem bảng giá →</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED: RIMAN FACIAL ============ -->
+<section class="section feature" id="facial">
+  <div class="container feature__inner">
+    <figure class="feature__img reveal"><img src="images/riman-facial.webp" alt="Signature Riman Facial tại ViVi's Glow Studio" loading="lazy"><figcaption hidden>Signature Riman Facial</figcaption></figure>
+    <div class="feature__text reveal">
+      <p class="eyebrow">Dịch vụ nổi bật</p>
+      <h2>Signature <em>Riman</em> Facial</h2>
+      <p class="feature__sub">Đánh thức vẻ đẹp tự nhiên</p>
+      <p>Liệu trình chăm sóc da cao cấp với dòng mỹ phẩm Riman Incellderm — làm sạch, cân bằng và nuôi dưỡng để làn da tươi mới, căng ẩm và rạng rỡ.</p>
+      <ul class="feature__list">
+          <li><span class="lotus">❀</span>Làm sạch sâu</li>
+          <li><span class="lotus">❀</span>Cấp ẩm chuyên sâu</li>
+          <li><span class="lotus">❀</span>Rạng rỡ, trẻ trung</li>
+      </ul>
+      <div class="feature__ritual"><b>Liệu trình Boo See Boo</b><span>cho làn da khỏe, sáng mịn</span></div>
+      <div class="feature__btns">
+        <a href="#contact" class="btn btn--gold" data-book="Premium Riman Signature Facial">Đặt lịch Facial</a>
+        <a href="tel:+17604846977" class="btn btn--outline">Gọi ngay</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============ HERO ============ -->
@@ -43,7 +133,7 @@
       <h1>Vẻ đẹp tự nhiên, <em>tinh tế</em> trong từng đường nét</h1>
       <p class="hero__sub">Phun mày, mí, môi thẩm mỹ được thiết kế riêng theo khuôn mặt bạn — nhẹ nhàng, bền màu và sang trọng.</p>
       <div class="hero__btns">
-        <a href="#contact" class="btn btn--gold">Đặt lịch tư vấn</a>
+        <a href="#contact" class="btn btn--gold" data-book>Đặt lịch tư vấn</a>
         <a href="tel:+17604846977" class="btn btn--outline">Gọi 760-484-6977</a>
       </div>
     </div>
@@ -77,29 +167,6 @@
   </div>
 </section>
 
-<!-- ============ FEATURED: RIMAN FACIAL ============ -->
-<section class="section feature" id="facial">
-  <div class="container feature__inner">
-    <figure class="feature__img reveal"><img src="images/riman-facial.webp" alt="Signature Riman Facial tại ViVi's Glow Studio" loading="lazy"><figcaption hidden>Signature Riman Facial</figcaption></figure>
-    <div class="feature__text reveal">
-      <p class="eyebrow">Dịch vụ nổi bật</p>
-      <h2>Signature <em>Riman</em> Facial</h2>
-      <p class="feature__sub">Đánh thức vẻ đẹp tự nhiên</p>
-      <p>Liệu trình chăm sóc da cao cấp với dòng mỹ phẩm Riman Incellderm — làm sạch, cân bằng và nuôi dưỡng để làn da tươi mới, căng ẩm và rạng rỡ.</p>
-      <ul class="feature__list">
-          <li><span class="lotus">❀</span>Làm sạch sâu</li>
-          <li><span class="lotus">❀</span>Cấp ẩm chuyên sâu</li>
-          <li><span class="lotus">❀</span>Rạng rỡ, trẻ trung</li>
-      </ul>
-      <div class="feature__ritual"><b>Liệu trình Boo See Boo</b><span>cho làn da khỏe, sáng mịn</span></div>
-      <div class="feature__btns">
-        <a href="#contact" class="btn btn--gold">Đặt lịch Facial</a>
-        <a href="tel:+17604846977" class="btn btn--outline">Gọi ngay</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ STUDIO ============ -->
 <section class="section studio" id="studio">
   <div class="container">
@@ -121,157 +188,6 @@
       <figure class="reveal"><img src="images/studio-4.webp" alt="Chăm sóc riêng từng khách" loading="lazy"><figcaption>Chăm sóc riêng từng khách</figcaption></figure>
       <figure class="reveal"><img src="images/studio-5.webp" alt="Không gian thư giãn như spa" loading="lazy"><figcaption>Không gian thư giãn như spa</figcaption></figure>
       <figure class="reveal"><img src="images/studio-6.webp" alt="Tập trung, nhẹ nhàng" loading="lazy"><figcaption>Tập trung, nhẹ nhàng</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============ WHY ============ -->
-<section class="section why">
-  <div class="container">
-    <div class="why__head reveal">
-      <p class="eyebrow">Vì sao chọn ViVi's Glow</p>
-      <h2>Tỏa sáng theo cách của bạn</h2>
-    </div>
-    <div class="why-grid">
-      <article class="why-card reveal">
-        <div class="why-card__img"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&q=80" alt="Chăm sóc 1–1"></div>
-        <div class="why-card__body">
-          <div class="why-card__top"><h3>Chăm sóc 1–1</h3><span class="why-card__num">01</span></div>
-          <p>ViVi trực tiếp tư vấn, thực hiện và theo dõi từng khách — từ bản phác thảo đầu tiên đến khi hồi phục hoàn toàn.</p>
-        </div>
-      </article>
-      <article class="why-card reveal">
-        <div class="why-card__img"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" alt="Thiết kế riêng"></div>
-        <div class="why-card__body">
-          <div class="why-card__top"><h3>Thiết kế riêng</h3><span class="why-card__num">02</span></div>
-          <p>Dáng mày, viền mí, màu môi được đo và phác thảo theo khuôn mặt, tông da và phong cách của bạn.</p>
-        </div>
-      </article>
-      <article class="why-card reveal">
-        <div class="why-card__img"><img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&q=80" alt="Tự nhiên & bền màu"></div>
-        <div class="why-card__body">
-          <div class="why-card__top"><h3>Tự nhiên & bền màu</h3><span class="why-card__num">03</span></div>
-          <p>Kỹ thuật nhẹ nhàng, ít đau, màu lên mềm mại tự nhiên và giữ đẹp từ 1–3 năm.</p>
-        </div>
-      </article>
-      <article class="why-card reveal">
-        <div class="why-card__img"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80" alt="Mực cao cấp"></div>
-        <div class="why-card__body">
-          <div class="why-card__top"><h3>Mực cao cấp</h3><span class="why-card__num">04</span></div>
-          <p>Chỉ dùng mực nhập khẩu chất lượng cao, lên đúng tông — không bị đỏ, xanh hay loang màu.</p>
-        </div>
-      </article>
-      <article class="why-card reveal">
-        <div class="why-card__img"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&q=80" alt="Vô khuẩn & an toàn"></div>
-        <div class="why-card__body">
-          <div class="why-card__top"><h3>Vô khuẩn & an toàn</h3><span class="why-card__num">05</span></div>
-          <p>Kim và dụng cụ dùng một lần, quy trình vô khuẩn nghiêm ngặt để bạn hoàn toàn yên tâm.</p>
-        </div>
-      </article>
-      <article class="why-card reveal">
-        <div class="why-card__img"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&q=80" alt="Dặm lại miễn phí"></div>
-        <div class="why-card__body">
-          <div class="why-card__top"><h3>Dặm lại miễn phí</h3><span class="why-card__num">06</span></div>
-          <p>Mỗi dịch vụ đều kèm một buổi dặm hoàn thiện và hướng dẫn chăm sóc tận tình trong thời gian hồi phục.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SERVICES ============ -->
-<section class="section services" id="services">
-  <div class="container">
-    <div class="heading reveal">
-      <p class="eyebrow">Dịch vụ</p>
-      <h2>Dịch vụ tại Studio</h2>
-      <p>Mỗi dịch vụ đều bắt đầu bằng buổi tư vấn riêng, phù hợp với gương mặt và phong cách của bạn.</p>
-    </div>
-    <div class="grid grid--3">
-      <article class="service reveal">
-        <div class="service__img"><img src="images/svc-brows.jpg?v=2" alt="Mày"></div>
-        <div class="service__body">
-          <span class="service__time">2 giờ</span>
-          <h3>Mày</h3>
-          <p>Nano · Ombré · Combo — dáng mày mềm mại, tự nhiên theo khuôn mặt, từ sợi mảnh đến hiệu ứng phấn.</p>
-          <div class="service__foot"><span class="price">Liên hệ</span><a href="#contact">Đặt lịch →</a></div>
-        </div>
-      </article>
-      <article class="service reveal">
-        <div class="service__img"><img src="images/svc-lips.jpg?v=2" alt="Môi"></div>
-        <div class="service__body">
-          <span class="service__time">2 giờ</span>
-          <h3>Môi</h3>
-          <p>Blush · Ombré · Khử thâm — môi hồng căng mọng, sáng màu và giữ vẻ tươi tắn cả ngày.</p>
-          <div class="service__foot"><span class="price">Liên hệ</span><a href="#contact">Đặt lịch →</a></div>
-        </div>
-      </article>
-      <article class="service reveal">
-        <div class="service__img"><img src="images/svc-lash.jpg?v=2" alt="Mi"></div>
-        <div class="service__body">
-          <span class="service__time">90 phút</span>
-          <h3>Mi</h3>
-          <p>Classic · Hybrid · Volume — nối mi theo dáng mắt, từ nhẹ nhàng tự nhiên đến dày quyến rũ.</p>
-          <div class="service__foot"><span class="price">Liên hệ</span><a href="#contact">Đặt lịch →</a></div>
-        </div>
-      </article>
-      <article class="service service--facial reveal">
-        <div class="service__img"><img src="images/svc-facial-riman.jpg" alt="Chăm sóc da Riman"></div>
-        <div class="service__body">
-          <span class="service__time">60 phút</span>
-          <h3>Chăm sóc da Riman</h3>
-          <p>Làm sạch sâu, cấp ẩm chuyên sâu và trẻ hóa làn da — liệu trình Boo See Boo với Riman Incellderm cho làn da khỏe, rạng rỡ.</p>
-          <div class="service__foot"><span class="price">Liên hệ</span><a href="#contact">Đặt lịch →</a></div>
-        </div>
-      </article>
-      <article class="service reveal">
-        <div class="service__img"><img src="images/svc-waxing.jpg?v=2" alt="Waxing"></div>
-        <div class="service__body">
-          <span class="service__time">30 phút</span>
-          <h3>Waxing</h3>
-          <p>Mịn màng & Tự tin — wax nhẹ nhàng, vệ sinh, da mềm mịn trong nhiều tuần.</p>
-          <div class="service__foot"><span class="price">Liên hệ</span><a href="#contact">Đặt lịch →</a></div>
-        </div>
-      </article>
-      <article class="service reveal">
-        <div class="service__img"><img src="images/svc-eyeliner.jpg?v=2" alt="Mí mắt"></div>
-        <div class="service__body">
-          <span class="service__time">1.5 giờ</span>
-          <h3>Mí mắt</h3>
-          <p>Classic · Permanent — đôi mắt sắc nét, có hồn mà không cần kẻ mắt mỗi sáng.</p>
-          <div class="service__foot"><span class="price">Liên hệ</span><a href="#contact">Đặt lịch →</a></div>
-        </div>
-      </article>
-      <article class="service service--brow reveal">
-        <div class="service__img"><img src="images/svc-nano.jpg?v=2" alt="Điêu khắc sợi Nano"></div>
-        <div class="service__body">
-          <span class="service__time">2.5 giờ</span>
-          <h3>Điêu khắc sợi Nano</h3>
-          <p>Từng sợi mảnh như lông mày thật, tạo dáng mày tự nhiên, mềm mại — lý tưởng cho vùng mày thưa.</p>
-          <span class="service__touch">Dặm lại sau 6–8 tuần · <b>$150</b></span>
-          <div class="service__foot"><span class="price">$499</span><a href="#contact">Đặt lịch →</a></div>
-        </div>
-      </article>
-      <article class="service service--brow reveal">
-        <div class="service__img"><img src="images/svc-ombre.jpg?v=2" alt="Phun Ombré (tán bột)"></div>
-        <div class="service__body">
-          <span class="service__time">2 giờ</span>
-          <h3>Phun Ombré (tán bột)</h3>
-          <p>Hiệu ứng phấn chuyển màu nhẹ — nhạt ở đầu, đậm dần về đuôi — gọn gàng như vừa trang điểm, hợp mọi loại da.</p>
-          <span class="service__touch">Dặm lại sau 6–8 tuần · <b>$100</b></span>
-          <div class="service__foot"><span class="price">$399</span><a href="#contact">Đặt lịch →</a></div>
-        </div>
-      </article>
-      <article class="service service--brow reveal">
-        <div class="service__img"><img src="images/svc-combo.jpg?v=2" alt="Combo (Nano + Ombré)"></div>
-        <div class="service__body">
-          <span class="service__time">2.5 giờ</span>
-          <h3>Combo (Nano + Ombré)</h3>
-          <p>Sợi mảnh ở đầu mày kết hợp tán bột ở thân và đuôi — tự nhiên, có chiều sâu và giữ nét lâu.</p>
-          <span class="service__touch">Dặm lại sau 6–8 tuần · <b>$150</b></span>
-          <div class="service__foot"><span class="price">$499</span><a href="#contact">Đặt lịch →</a></div>
-        </div>
-      </article>
     </div>
   </div>
 </section>
@@ -351,7 +267,8 @@
         <li><b>Giờ mở cửa</b>Thứ 2 – Thứ 7: 9:00 – 19:00<br>Chủ nhật: theo lịch hẹn</li>
       </ul>
       <div class="contact__btns">
-        <a href="tel:+17604846977" class="btn btn--gold">Gọi đặt lịch</a>
+        <a href="#contact" class="btn btn--gold" data-book>Đặt lịch hẹn</a>
+        <a href="tel:+17604846977" class="btn btn--sage">Gọi đặt lịch</a>
         <a href="sms:+17604846977" class="btn btn--light">Nhắn tin</a>
       </div>
       <div class="social social--contact"><a href="https://www.facebook.com/ViviGlowStudio" target="_blank" rel="noopener" aria-label="Facebook" class="social__link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3z"/></svg><span>Facebook</span></a><a href="https://www.instagram.com/vivisglowstudio" target="_blank" rel="noopener" aria-label="Instagram" class="social__link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zm6.1-8.1a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM21 8.1c-.1-1.5-.4-2.8-1.5-3.9S17.1 2.8 15.6 2.7C14.1 2.6 9.9 2.6 8.4 2.7 6.9 2.8 5.6 3.1 4.5 4.2S3.1 6.6 3 8.1c-.1 1.5-.1 5.7 0 7.2.1 1.5.4 2.8 1.5 3.9s2.4 1.4 3.9 1.5c1.5.1 5.7.1 7.2 0 1.5-.1 2.8-.4 3.9-1.5s1.4-2.4 1.5-3.9c.1-1.5.1-5.7 0-7.2zm-2 9.1c-.3.8-1 1.5-1.8 1.8-1.3.5-4.3.4-5.7.4s-4.4.1-5.7-.4c-.8-.3-1.5-1-1.8-1.8-.5-1.3-.4-4.3-.4-5.7s-.1-4.4.4-5.7c.3-.8 1-1.5 1.8-1.8 1.3-.5 4.3-.4 5.7-.4s4.4-.1 5.7.4c.8.3 1.5 1 1.8 1.8.5 1.3.4 4.3.4 5.7s.1 4.4-.4 5.7z"/></svg><span>Instagram</span></a></div>
@@ -373,7 +290,7 @@
     </div>
     <div>
       <h4>Dịch vụ</h4>
-      <a href="#services">Phun mày</a><a href="#services">Phun môi</a><a href="#services">Phun mí</a>
+      <a href="services.html?type=brows">Phun mày</a><a href="services.html?type=lips">Phun môi</a><a href="services.html?type=lash">Nối mi</a><a href="services.html?type=facial">Chăm sóc da</a><a href="services.html?type=waxing">Waxing</a><a href="services.html?type=eyeliner">Phun mí</a>
     </div>
     <div>
       <h4>Kết nối</h4>
@@ -386,6 +303,6 @@
 <!-- Nút gọi nổi -->
 <a href="tel:+17604846977" class="float-call" aria-label="Gọi ngay: 760-484-6977"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg><span class="float-call__num">760-484-6977</span></a>
 
-<script src="script.js?v=46"></script>
+<script src="script.js?v=49"></script>
 </body>
 </html>
