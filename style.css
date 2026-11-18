@@ -604,3 +604,51 @@ body{font-weight:400;letter-spacing:-.005em}
 .logo span{color:var(--gold-dark)}
 .hero h1 em{color:var(--sage-dark)}
 .about__text h2 em{color:#f3dfae}
+
+/* ===== 2 ảnh phòng (ngang) phía trên lưới studio ===== */
+.studio__wide{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-bottom:26px}
+.studio__wide figure{position:relative;border-radius:14px;overflow:hidden;cursor:zoom-in;border:2px solid var(--glow-line);box-shadow:var(--under);animation:underPulse 3.2s ease-in-out infinite}
+.studio__wide figure:hover{box-shadow:var(--under-strong);animation:none}
+.studio__wide img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:.6s}
+.studio__wide figure:hover img{transform:scale(1.03)}
+.studio__wide figcaption{position:absolute;inset:auto 0 0;padding:40px 18px 14px;background:linear-gradient(transparent,rgba(40,41,35,.72));color:var(--white);font-family:var(--serif);font-size:1.2rem}
+@media (max-width:700px){.studio__wide{grid-template-columns:1fr;gap:16px;margin-bottom:16px}}
+
+/* ===== Icon mạng xã hội ===== */
+.social{display:flex;gap:12px;flex-wrap:wrap}
+.social__link{display:inline-flex!important;align-items:center;gap:8px;margin:0!important;padding:8px 16px 8px 8px;border-radius:40px;border:1.5px solid var(--glow-line);transition:.3s;font-size:.9rem}
+.social__link svg{width:32px;height:32px;padding:6px;border-radius:50%;fill:currentColor;background:rgba(255,253,249,.12)}
+.social__link:hover{background:var(--gold);color:var(--white)!important;border-color:var(--gold)}
+.social--contact{margin-top:22px}
+.social--contact .social__link{color:var(--white)}
+.social--footer{flex-direction:column;gap:10px;align-items:flex-start}
+.social--footer .social__link{color:rgba(255,253,249,.85)}
+
+/* Ảnh bìa: 1 ảnh, hiện trọn */
+.cover__single{display:block;width:100%;height:auto;background:#3f5a43}
+/* giữ trọn dáng mày ở 3 thẻ kiểu mày */
+.service--brow .service__img img{object-position:center 18%}
+
+/* ===== Nút gọi điện ===== */
+.nav__phone{display:inline-flex!important;align-items:center;gap:8px;font-weight:600!important;color:var(--sage-dark)!important;white-space:nowrap}
+.nav__phone svg{width:30px;height:30px;padding:7px;border-radius:50%;background:var(--sage);fill:var(--white);border:1.5px solid var(--glow-line)}
+.nav__phone::after{display:none}
+.nav__phone:hover{color:var(--gold-dark)!important}
+/* nút gọi nổi: hiện trên mọi màn hình, có số */
+.float-call{display:inline-flex!important;align-items:center;gap:10px;width:auto!important;height:auto!important;padding:10px 20px 10px 10px;border-radius:50px!important;font-size:1rem!important;font-weight:600;color:var(--white)!important;text-decoration:none}
+.float-call svg{width:36px;height:36px;padding:8px;border-radius:50%;background:rgba(255,253,249,.22);fill:var(--white)}
+@media (max-width:1100px) and (min-width:901px){.nav__phone span{display:none}}
+@media (max-width:900px){.nav__phone{font-size:1.2rem!important;font-family:var(--sans)!important}}
+@media (max-width:600px){.float-call{right:14px;bottom:14px;padding:8px 16px 8px 8px;font-size:.92rem!important}.float-call svg{width:32px;height:32px;padding:7px}}
+@media (max-width:600px){.contact__btns .btn{flex:1 1 100%}}
+
+/* ===== Sửa menu điện thoại mất nền =====
+   backdrop-filter trên header làm menu (position:fixed) bị giới hạn trong chiều cao header */
+@media (max-width:900px){
+  .header,.header.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .header.scrolled{background:rgba(233,223,207,.98)}
+  .nav{position:fixed;top:0;left:0;right:0;bottom:auto;width:100%;height:100vh;height:100dvh;
+       background:linear-gradient(180deg,var(--beige) 0%,var(--beige-light) 100%);z-index:100;
+       padding:90px 24px 40px;overflow-y:auto;box-shadow:-10px 0 30px -10px rgba(40,41,35,.25)}
+  .header.menu-open{background:var(--beige)}
+}

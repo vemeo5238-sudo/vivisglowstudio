@@ -9,10 +9,11 @@ const nav = document.getElementById('nav');
 burger.addEventListener('click', () => {
   burger.classList.toggle('open');
   nav.classList.toggle('open');
+  header.classList.toggle('menu-open', nav.classList.contains('open'));
   document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
 });
 nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  burger.classList.remove('open'); nav.classList.remove('open'); document.body.style.overflow = '';
+  burger.classList.remove('open'); nav.classList.remove('open'); header.classList.remove('menu-open'); document.body.style.overflow = '';
 }));
 
 // Hiệu ứng hiện dần
@@ -76,7 +77,7 @@ go(0);
 const lb = document.getElementById('lightbox');
 if (lb) {
   const lbImg = lb.querySelector('img'), lbCap = lb.querySelector('.lightbox__cap');
-  document.querySelectorAll('.gallery--ba figure, .studio__grid figure, .feature__img').forEach(f => f.addEventListener('click', () => {
+  document.querySelectorAll('.gallery--ba figure, .studio__grid figure, .studio__wide figure, .feature__img').forEach(f => f.addEventListener('click', () => {
     const img = f.querySelector('img');
     lbImg.src = img.src; lbImg.alt = img.alt;
     lbCap.textContent = f.querySelector('figcaption').textContent;
