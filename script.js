@@ -125,14 +125,14 @@ if (cs) {
   const T = VI ? {
     title: 'Đặt lịch hẹn', name: 'Họ và tên', phone: 'Số điện thoại', service: 'Dịch vụ', choose: '— Chọn dịch vụ —',
     advice: 'Chưa chắc — tôi muốn được tư vấn', date: 'Ngày', time: 'Giờ', note: 'Ghi chú', notePh: 'Kiểu mày, màu môi, kiểu mi bạn thích…',
-    send: 'Gửi yêu cầu đặt lịch', hint: 'Bấm gửi sẽ mở tin nhắn tới ViVi với đầy đủ thông tin — bạn chỉ cần bấm Gửi.',
-    done: 'Cảm ơn bạn!', doneTxt: 'Tin nhắn đặt lịch đã được mở sẵn. Hãy bấm Gửi trong ứng dụng tin nhắn, ViVi sẽ nhắn lại xác nhận sớm nhất.',
+    send: 'Gửi yêu cầu đặt lịch', sending: 'Đang gửi…', hint: 'ViVi sẽ gọi hoặc nhắn tin để xác nhận lịch hẹn của bạn.', fail: 'Chưa gửi được qua web. Đang mở tin nhắn tới ViVi để bạn gửi trực tiếp.',
+    done: 'Cảm ơn bạn!', doneTxt: 'ViVi đã nhận được yêu cầu đặt lịch và sẽ gọi hoặc nhắn tin xác nhận sớm nhất.',
     noSms: 'Không mở được tin nhắn? Gọi hoặc nhắn trực tiếp:', close: 'Đóng', msg: 'Xin chào ViVi, tôi muốn đặt lịch'
   } : {
     title: 'Book an appointment', name: 'Full name', phone: 'Phone number', service: 'Service', choose: '— Choose a service —',
     advice: "Not sure — I'd like advice", date: 'Date', time: 'Time', note: 'Notes', notePh: 'Brow shape, lip color or lash style you love…',
-    send: 'Request appointment', hint: 'Sending opens a text message to ViVi with your details filled in — just tap Send.',
-    done: 'Thank you!', doneTxt: 'Your booking text is ready. Tap Send in your messages app and ViVi will text you back to confirm as soon as possible.',
+    send: 'Request appointment', sending: 'Sending…', hint: 'ViVi will call or text you to confirm your appointment.', fail: "We couldn't send it online — opening a text to ViVi so you can send it directly.",
+    done: 'Thank you!', doneTxt: "We've received your request. ViVi will call or text you to confirm as soon as possible.",
     noSms: "Text didn't open? Call or text us directly:", close: 'Close', msg: "Hi ViVi, I'd like to book an appointment"
   };
   const GROUPS = [
@@ -165,6 +165,8 @@ if (cs) {
           <label>${T.time}<select name="time" required>${times.map(t => `<option>${t}</option>`).join('')}</select></label>
         </div>
         <label>${T.note}<textarea name="note" rows="2" placeholder="${T.notePh}"></textarea></label>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <p class="bform__err" id="bookErr" hidden></p>
         <button type="submit" class="btn btn--gold btn--full">${T.send}</button>
         <p class="bform__hint">${T.hint}</p>
       </form>
@@ -194,13 +196,32 @@ if (cs) {
     if (e.target.closest('[data-bclose]')) close();
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('is-open')) close(); });
-  form.addEventListener('submit', e => {
+  const ENDPOINT = 'https://vivisglowstudio.com/?rest_route=/vivis/v1/submit';
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(form));
-    const dt = new Date(d.date + 'T12:00').toLocaleDateString(VI ? 'vi-VN' : 'en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-    const body = `${T.msg}:\n• ${T.service}: ${d.service}\n• ${T.date}: ${dt}, ${d.time}\n• ${T.name}: ${d.name}\n• ${T.phone}: ${d.phone}` + (d.note ? `\n• ${T.note}: ${d.note}` : '');
-    const ios = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
-    window.location.href = `sms:+17604846977${ios ? '&' : '?'}body=${encodeURIComponent(body)}`;
-    form.hidden = true; done.hidden = false;
+    if (d._honey) return;
+    const btn = form.querySelector('button[type=submit]'), err = document.getElementById('bookErr');
+    err.hidden = true; btn.disabled = true; const label = btn.textContent; btn.textContent = T.sending;
+    try {
+      const body = new URLSearchParams({ kind: 'booking', name: d.name || '', phone: d.phone || '', service: d.service || '',
+        location: "ViVi's Glow Studio", date: d.date || '', time: d.time || '', message: d.note || '', page: location.href });
+      const r = await fetch(ENDPOINT, { method: 'POST', body });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || !j.ok) throw new Error(r.status);
+      form.hidden = true; done.hidden = false;
+    } catch (x) {
+      // Dự phòng: không gửi được qua web thì mở tin nhắn tới ViVi
+      err.textContent = T.fail; err.hidden = false;
+      const dt = new Date(d.date + 'T12:00').toLocaleDateString(VI ? 'vi-VN' : 'en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+      const sms = `${T.msg}:
+• ${T.service}: ${d.service}
+• ${T.date}: ${dt}, ${d.time}
+• ${T.name}: ${d.name}
+• ${T.phone}: ${d.phone}` + (d.note ? `
+• ${T.note}: ${d.note}` : '');
+      const ios = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+      setTimeout(() => { window.location.href = `sms:+17604846977${ios ? '&' : '?'}body=${encodeURIComponent(sms)}`; }, 1200);
+    } finally { btn.disabled = false; btn.textContent = label; }
   });
 })();

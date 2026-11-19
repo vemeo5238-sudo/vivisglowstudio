@@ -817,3 +817,4 @@ body{font-weight:400;letter-spacing:-.005em}
 .tcard__head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-bottom:6px}
 .tcard__head h3{margin:0}
 .tcard__price{font-family:'Roboto',var(--sans);font-weight:500;font-size:1.3rem;color:var(--gold-dark);white-space:nowrap}
+.bform__err{color:#a3341f;font-size:.85rem;text-align:center;margin:0}
