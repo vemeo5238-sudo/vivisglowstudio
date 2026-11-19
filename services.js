@@ -1,11 +1,11 @@
 /* ===== Dữ liệu dịch vụ ViVi's Glow Studio (theo menu tại tiệm) ===== */
 const RESULTS = [
-  { img: "images/pf-1.webp", cap: "Brows & Lip Blush", cats: ["brows", "lips"] },
+  { img: "images/pf-1.webp", cap: "Brows & Lip Blush", cats: ["brows"] },
   { img: "images/pf-2.webp", cap: "Nano Hairstroke Brows", cats: ["brows"] },
   { img: "images/pf-3.webp", cap: "Combo Brows", cats: ["brows"] },
   { img: "images/pf-4.webp", cap: "Soft Brows for Mature Skin", cats: ["brows"] },
   { img: "images/pf-5.webp", cap: "Nano Brows Transformation", cats: ["brows"] },
-  { img: "images/pf-6.webp", cap: "Ombré Brows & Lips", cats: ["brows", "lips"] },
+  { img: "images/pf-6.webp", cap: "Ombré Brows & Lips", cats: ["brows"] },
   { img: "images/pf-7.webp", cap: "From Brow Mapping to Result", cats: ["brows"] },
   { img: "images/pf-8.webp", cap: "Natural Nano Brows", cats: ["brows"] },
   { img: "images/pf-9.webp", cap: "Lash Line Enhancement", cats: ["eyeliner"] },
@@ -27,22 +27,22 @@ const SERVICES = [
     desc: "Soft powder effect for a fuller, more defined look on every skin type." },
   { cat: "brows", name: "Combo (Nano + Ombré)", price: "$499", time: "Touch-up 6–8 wks · $150", img: "images/svc-combo.jpg?v=2",
     desc: "The perfect blend of natural strokes and soft shading." },
-  { cat: "brows", name: "Brow Enhancements", price: "$30 – $120", img: "images/svc-brows.jpg?v=2",
+  { cat: "brows", name: "Brow Enhancements", price: "$30 – $120", img: "images/brow-enhance.webp",
     desc: "Lift, lamination, tint and wax to keep your brows groomed and full.",
     inc: ["Lift & Lamination — $90", "Tint — $30–$35", "Lift + Tint — $90", "Shape, Lift, Tint, Wax — $100–$120"] },
   // LIPS
   { cat: "lips", name: "Lip Blush", price: "$449+", time: "Touch-up 6–8 wks · $150", img: "images/lips-blush.webp", badge: "Popular",
     desc: "Natural-looking, rosy lips with soft color custom-blended to your skin tone." },
-  { cat: "lips", name: "Dark Lip Neutralization", price: "$499 – $599+", img: "images/svc-lips.jpg?v=2",
+  { cat: "lips", name: "Dark Lip Neutralization", price: "$499 – $599+", img: "images/lips-neutral.webp",
     desc: "Corrects dark or cool-toned lips for a brighter, even, healthy-looking color." },
   // LASH
   { cat: "lash", name: "Classic Full Set", price: "$135", img: "images/lash-classic.webp?v=2",
     desc: "1 extension applied to 1 natural lash. Natural & elegant — perfect for an everyday look.",
     inc: ["Refill 2–3 weeks — $65–$75", "After 4 weeks — $135 (removal + full set)"] },
-  { cat: "lash", name: "Hybrid Full Set", price: "$145", img: "images/lash-hybrid.webp?v=3", badge: "Popular",
+  { cat: "lash", name: "Hybrid Full Set", price: "$145", img: "images/lash-hybrid.webp?v=5", badge: "Popular",
     desc: "A mix of classic and volume lashes. Adds fullness while keeping it soft and natural.",
     inc: ["Refill 2–3 weeks — $75–$85", "After 4 weeks — $145 (removal + full set)"] },
-  { cat: "lash", name: "Volume Full Set", price: "$155", img: "images/lash-volume.webp?v=2",
+  { cat: "lash", name: "Volume Full Set", price: "$155", img: "images/lash-volume.webp?v=3",
     desc: "Multiple lightweight extensions per natural lash. Full & glamorous for a bold look.",
     inc: ["Refill 2–3 weeks — $85–$95", "After 4 weeks — $155 (removal + full set)"] },
   { cat: "lash", name: "Lash Lift & Tint", price: "$80 – $120", img: "images/svc-lash.jpg?v=2",
@@ -51,13 +51,13 @@ const SERVICES = [
   // FACIAL
   { cat: "facial", name: "Basic Glow Facial", price: "$89", time: "45 min", img: "images/svc-facial.jpg?v=2",
     desc: "A classic, refreshing treatment to deeply cleanse, hydrate and relax your skin. Perfect for a quick skin pick-me-up.",
-    inc: ["3-Step Deep Cleansing (Oil, Powder & Enzyme Wash)", "Relaxing Facial Massage", "Customized Clay Mask (Green Tea, Turmeric or Dead Sea Minerals)", "Riman Moisturizer + Sunscreen + Multi Stick Lip Balm"] },
+    inc: ["3-Step Deep Cleansing (Oil, Powder & Enzyme Wash)", "Lips Scrub (Exfoliate)", "Relaxing Facial Massage", "Customized Clay Mask (Green Tea, Turmeric or Dead Sea Minerals)", "Riman Moisturizer + Sunscreen + Multi Stick Lip Balm"] },
   { cat: "facial", name: "Advanced LED Facial", price: "$125", time: "60 min", img: "images/svc-facial-riman.jpg",
     desc: "7-Color LED Light Therapy targets deeper concerns — boosting collagen, reducing fine lines or clearing acne-causing bacteria.",
-    inc: ["3-Step Deep Cleansing (Oil, Powder & Enzyme Wash)", "Relaxing & Lifting Face, Neck & Shoulder Massage", "Collagen Mask", "Custom 7-Color LED Light Therapy (15 min)", "Riman Moisturizer + Sunscreen + Multi Stick Lip Balm"] },
+    inc: ["3-Step Deep Cleansing (Oil, Powder & Enzyme Wash)", "Lips Scrub (Exfoliate)", "Relaxing & Lifting Face, Neck & Shoulder Massage", "Collagen Mask", "Custom 7-Color LED Light Therapy (15 min)", "Riman Moisturizer + Sunscreen + Multi Stick Lip Balm"] },
   { cat: "facial", name: "Premium Riman Signature Facial", price: "$149", time: "75 min", img: "images/riman-facial.webp", badge: "Premium",
     desc: "Our ultimate VIP treatment with Korean RIMAN (Incellderm) skincare, advanced LED and red-light therapy for a youthful “Glass Skin” glow.",
-    inc: ["3-Step Deep Cleansing (Oil, Powder & Enzyme Wash)", "NEW · 10-Point Facial Acupressure & Lifting Massage", "Advanced Riman Boo-See-Boo Glow Ritual", "Custom 7-Color LED Light Therapy (10 min)", "Red-Light Facial Treatment (10 min)", "Riman Moisturizer + Sunscreen + Multi Stick Lip Balm"] },
+    inc: ["3-Step Deep Cleansing (Oil, Powder & Enzyme Wash)", "Lips Scrub (Exfoliate)", "NEW · 10-Point Facial Acupressure & Lifting Massage", "Advanced Riman Boo-See-Boo Glow Ritual", "Custom 7-Color LED Light Therapy (10 min)", "Red-Light Facial Treatment (10 min)", "Riman Moisturizer + Sunscreen + Multi Stick Lip Balm"] },
   // WAXING
   { cat: "waxing", name: "Face Waxing", price: "$15 – $50", img: "images/svc-waxing.jpg?v=2",
     desc: "Gentle, precise waxing for a clean, smooth face.",
@@ -120,8 +120,8 @@ const card = (t, i) => `
       ${t.badge ? `<span class="tcard__badge">${t.badge}</span>` : ""}
     </div>
     <div class="tcard__body">
-      <h3>${esc(t.name)}</h3>
-      <div class="tcard__meta">${t.time ? `<span>${t.time}</span><i></i>` : ""}<b>${t.price}</b></div>
+      <div class="tcard__head"><h3>${esc(t.name)}</h3><b class="tcard__price">${t.price}</b></div>
+      ${t.time ? `<div class="tcard__meta"><span>${t.time}</span></div>` : ""}
       <p>${esc(t.desc)}</p>
       ${t.inc ? `<details class="tcard__more"><summary>Includes</summary><ul>${t.inc.map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>` : ""}
       <div class="tcard__actions"><a href="#" class="btn btn--outline" data-book="${esc(t.name)}">Book</a></div>
