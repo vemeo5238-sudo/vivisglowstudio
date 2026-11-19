@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600&family=Great+Vibes&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=53">
+<link rel="stylesheet" href="style.css?v=56">
 </head>
 <body>
 
@@ -54,12 +54,7 @@
     </div>
     <p class="svc-count" id="svcCount"></p>
     <div class="tgrid" id="svcGrid"></div>
-  </div>
-</section>
-
-<section class="section svc-member">
-  <div class="container">
-    <div class="member reveal">
+    <div class="member member--lash" id="lashMember" hidden>
       <p class="eyebrow" style="color:#f3dfae;text-align:center">Exclusive</p>
       <h3>6-Month Lash Membership</h3>
       <p class="member__sub">Commit to your lashes. Save more. Glow longer.</p>
@@ -74,8 +69,14 @@
       </ul>
       <p class="member__note">Refills must be maintained every 2–3 weeks. After 4 weeks, full-set pricing applies.</p>
     </div>
+    <div class="results" id="svcResults" hidden>
+      <p class="eyebrow">Real Results</p>
+      <h3 id="resultsTitle">Before &amp; After</h3>
+      <div class="results__grid" id="resultsGrid"></div>
+    </div>
   </div>
 </section>
+
 
 <section class="section svc-prices" id="prices">
   <div class="container">
@@ -135,7 +136,7 @@
 
 <a href="tel:+17604846977" class="float-call" aria-label="Call now: 760-484-6977"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg><span class="float-call__num">760-484-6977</span></a>
 
-<script src="services.js?v=6"></script>
+<script src="services.js?v=12"></script>
 <script src="script.js?v=49"></script>
 </body>
 </html>

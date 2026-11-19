@@ -1,4 +1,22 @@
 /* ===== Dữ liệu dịch vụ ViVi's Glow Studio (theo menu tại tiệm) ===== */
+const RESULTS = [
+  { img: "images/pf-1.webp", cap: "Brows & Lip Blush", cats: ["brows", "lips"] },
+  { img: "images/pf-2.webp", cap: "Nano Hairstroke Brows", cats: ["brows"] },
+  { img: "images/pf-3.webp", cap: "Combo Brows", cats: ["brows"] },
+  { img: "images/pf-4.webp", cap: "Soft Brows for Mature Skin", cats: ["brows"] },
+  { img: "images/pf-5.webp", cap: "Nano Brows Transformation", cats: ["brows"] },
+  { img: "images/pf-6.webp", cap: "Ombré Brows & Lips", cats: ["brows", "lips"] },
+  { img: "images/pf-7.webp", cap: "From Brow Mapping to Result", cats: ["brows"] },
+  { img: "images/pf-8.webp", cap: "Natural Nano Brows", cats: ["brows"] },
+  { img: "images/pf-9.webp", cap: "Lash Line Enhancement", cats: ["eyeliner"] },
+  { img: "images/pf-10.webp", cap: "Upper Eyeliner", cats: ["eyeliner"] },
+  { img: "images/pf-11.webp", cap: "Classic Winged Eyeliner", cats: ["eyeliner"] },
+  { img: "images/pf-12.webp", cap: "Healed Lip Blush", cats: ["lips"] },
+  { img: "images/pf-15.webp", cap: "Full Lip Blush", cats: ["lips"] },
+  { img: "images/pf-17.webp", cap: "Coral Lip Blush", cats: ["lips"] },
+  { img: "images/pf-18.webp", cap: "Fresh Lip Blush", cats: ["lips"] },
+  { img: "images/pf-19.webp", cap: "Lip Color Correction", cats: ["lips"] },
+];
 const LABELS = { brows: "Brows", lips: "Lips", lash: "Lash", facial: "Facial", waxing: "Waxing", eyeliner: "Eyeliner" };
 
 const SERVICES = [
@@ -13,7 +31,7 @@ const SERVICES = [
     desc: "Lift, lamination, tint and wax to keep your brows groomed and full.",
     inc: ["Lift & Lamination — $90", "Tint — $30–$35", "Lift + Tint — $90", "Shape, Lift, Tint, Wax — $100–$120"] },
   // LIPS
-  { cat: "lips", name: "Lip Blush", price: "$449", time: "Touch-up 6–8 wks · $150", img: "images/lips-blush.webp", badge: "Popular",
+  { cat: "lips", name: "Lip Blush", price: "$449+", time: "Touch-up 6–8 wks · $150", img: "images/lips-blush.webp", badge: "Popular",
     desc: "Natural-looking, rosy lips with soft color custom-blended to your skin tone." },
   { cat: "lips", name: "Dark Lip Neutralization", price: "$499 – $599+", img: "images/svc-lips.jpg?v=2",
     desc: "Corrects dark or cool-toned lips for a brighter, even, healthy-looking color." },
@@ -21,7 +39,7 @@ const SERVICES = [
   { cat: "lash", name: "Classic Full Set", price: "$135", img: "images/lash-classic.webp?v=2",
     desc: "1 extension applied to 1 natural lash. Natural & elegant — perfect for an everyday look.",
     inc: ["Refill 2–3 weeks — $65–$75", "After 4 weeks — $135 (removal + full set)"] },
-  { cat: "lash", name: "Hybrid Full Set", price: "$145", img: "images/lash-hybrid.webp?v=2", badge: "Popular",
+  { cat: "lash", name: "Hybrid Full Set", price: "$145", img: "images/lash-hybrid.webp?v=3", badge: "Popular",
     desc: "A mix of classic and volume lashes. Adds fullness while keeping it soft and natural.",
     inc: ["Refill 2–3 weeks — $75–$85", "After 4 weeks — $145 (removal + full set)"] },
   { cat: "lash", name: "Volume Full Set", price: "$155", img: "images/lash-volume.webp?v=2",
@@ -70,7 +88,7 @@ const PRICE_MENU = {
     ["Brow Enhancements", "", [["Lift & Lamination", "$90"], ["Tint", "$30 – $35"], ["Lift + Tint", "$90"], ["Shape, Lift, Tint, Wax", "$100 – $120"]]],
   ],
   lips: [
-    ["Lip Blush", "", [["Lip Blush", "$449", "Natural looking, rosy lips"], ["6–8 Week Touch-Up", "$150", "After initial session"], ["Dark Lip Neutralization", "$499 – $599+", "Correct dark or cool-toned lips"]]],
+    ["Lip Blush", "", [["Lip Blush", "$449+", "Natural looking, rosy lips"], ["6–8 Week Touch-Up", "$150", "After initial session"], ["Dark Lip Neutralization", "$499 – $599+", "Correct dark or cool-toned lips"]]],
   ],
   lash: [
     ["Full Set", "", [["Classic Full Set", "$135"], ["Hybrid Full Set", "$145"], ["Volume Full Set", "$155"], ["Removal (Rest)", "$20 – $30"], ["Lash Lift", "$80 – $90"], ["Lash Tint", "$20 – $30"], ["Lash Lift & Tint", "$100 – $120"]]],
@@ -117,6 +135,13 @@ function setFilter(f) {
   const list = f === "all" ? SERVICES : SERVICES.filter(t => t.cat === f);
   grid.innerHTML = list.map(card).join("");
   countEl.textContent = `${list.length} services`;
+  const mem = document.getElementById("lashMember"); if (mem) mem.hidden = f !== "lash";
+  const res = RESULTS.filter(r => r.cats.includes(f)), box = document.getElementById("svcResults");
+  if (box) {
+    box.hidden = !res.length;
+    document.getElementById("resultsTitle").textContent = `${LABELS[f] || ""} — Before & After`;
+    document.getElementById("resultsGrid").innerHTML = res.map(r => `<figure class="results__item"><img src="${r.img}" alt="${esc(r.cap)} – before and after" loading="lazy"><figcaption>${esc(r.cap)}</figcaption></figure>`).join("");
+  }
   const act = document.querySelector(`[data-filter="${f}"]`), bar = act.parentElement;
   bar.scrollTo({ left: act.offsetLeft - (bar.clientWidth - act.offsetWidth) / 2, behavior: "smooth" });
 }
@@ -142,3 +167,12 @@ const start = LABELS[params.get("type")] ? params.get("type") : "all";
 setFilter(start);
 showPrices(start === "all" ? "brows" : start);
 if (start !== "all") window.addEventListener("load", () => setTimeout(() => window.scrollTo({ top: document.getElementById("menu").getBoundingClientRect().top + scrollY - 70, behavior: "smooth" }), 150));
+
+// Phóng to ảnh trước/sau
+document.addEventListener("click", e => {
+  const fig = e.target.closest(".results__item"), lb = document.getElementById("lightbox");
+  if (!fig || !lb) return;
+  const img = fig.querySelector("img"), li = lb.querySelector("img");
+  li.src = img.src; li.alt = img.alt; lb.querySelector(".lightbox__cap").textContent = fig.querySelector("figcaption").textContent;
+  lb.classList.add("open"); lb.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden";
+});
