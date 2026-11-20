@@ -150,6 +150,7 @@ const card = (t, i) => `
 
 const grid = document.getElementById("svcGrid"), countEl = document.getElementById("svcCount");
 const params = new URLSearchParams(location.search);
+const pathType = (location.pathname.match(/\/services\/(\w+)\/?$/) || [])[1];
 function setFilter(f) {
   document.querySelectorAll("[data-filter]").forEach(b => { const on = b.dataset.filter === f; b.classList.toggle("is-active", on); b.setAttribute("aria-selected", on); });
   const list = f === "all" ? SERVICES : SERVICES.filter(t => t.cat === f);
@@ -169,7 +170,7 @@ function setFilter(f) {
 }
 document.querySelectorAll("[data-filter]").forEach(b => b.addEventListener("click", () => {
   setFilter(b.dataset.filter);
-  history.replaceState(null, "", b.dataset.filter === "all" ? "services.html" : "?type=" + b.dataset.filter);
+  history.replaceState(null, "", b.dataset.filter === "all" ? "services" : "services/" + b.dataset.filter);
 }));
 
 const priceList = document.getElementById("priceList");
@@ -185,7 +186,17 @@ function showPrices(k) {
 }
 document.getElementById("priceTabs").addEventListener("click", e => { const b = e.target.closest("[data-price]"); if (b) showPrices(b.dataset.price); });
 
-const start = LABELS[params.get("type")] ? params.get("type") : "all";
+const want = pathType || params.get("type");
+const start = LABELS[want] ? want : "all";
+// Địa chỉ cũ services.html?type=lips -> hiện thành services/lips
+if (params.get("type") && LABELS[want]) history.replaceState(null, "", "services/" + want);
+// Link "services#prices" trên chính trang này: cuộn tới, không tải lại trang
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="services#"]');
+  if (!a) return;
+  const el = document.getElementById(a.getAttribute("href").split("#")[1]);
+  if (el) { e.preventDefault(); el.scrollIntoView({ behavior: "smooth" }); }
+});
 setFilter(start);
 showPrices(start === "all" ? "brows" : start);
 if (start !== "all") window.addEventListener("load", () => setTimeout(() => window.scrollTo({ top: document.getElementById("menu").getBoundingClientRect().top + scrollY - 70, behavior: "smooth" }), 150));

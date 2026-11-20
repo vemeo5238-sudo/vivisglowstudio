@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ViVi's Glow Studio</title>
+<script>
+  // GitHub Pages: /vivisglowstudio/services/lips -> services.html?type=lips (trang tự đổi địa chỉ lại thành /services/lips)
+  (function () {
+    var base = location.hostname.indexOf("github.io") > -1 ? "/vivisglowstudio/" : "/";
+    var m = location.pathname.match(/\/services\/(\w+)\/?$/);
+    if (m) { location.replace(base + "services.html?type=" + m[1] + location.hash); return; }
+    if (/\/services\/?$/.test(location.pathname)) { location.replace(base + "services.html" + location.hash); return; }
+    location.replace(base);
+  })();
+</script>
+</head>
+<body style="font-family:sans-serif;text-align:center;padding:60px">
+  <p>Redirecting… <a href="/">ViVi's Glow Studio</a></p>
+</body>
+</html>
