@@ -818,3 +818,24 @@ body{font-weight:400;letter-spacing:-.005em}
 .tcard__head h3{margin:0}
 .tcard__price{font-family:'Roboto',var(--sans);font-weight:500;font-size:1.3rem;color:var(--gold-dark);white-space:nowrap}
 .bform__err{color:#a3341f;font-size:.85rem;text-align:center;margin:0}
+
+/* ===== Popup đặt lịch: Gọi / Nhắn tin ===== */
+.bmodal__box--contact{text-align:center;width:min(440px,100%)}
+.bcontact__svc{display:inline-block;background:var(--sage-light);color:var(--sage-dark);font-weight:500;padding:5px 16px;border-radius:30px;margin:-4px 0 14px}
+.bcontact__svc[hidden]{display:none}
+.bcontact__lead{margin-bottom:24px}
+.bcontact__btns{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bcontact__btn{display:inline-flex!important;align-items:center;justify-content:center;gap:10px;padding:15px 18px;font-size:1rem}
+.bcontact__btn svg{width:20px;height:20px;fill:currentColor}
+.bcontact__num{display:inline-block;margin-top:20px;font-family:'Roboto',var(--sans);font-size:1.4rem;font-weight:500;color:var(--gold-dark)}
+@media (max-width:420px){.bcontact__btns{grid-template-columns:1fr}}
+
+/* ===== Video trước/sau ===== */
+.results__item--video img{object-position:center 55%}
+.results__play{position:absolute;top:50%;left:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(40,41,35,.55);border:2px solid var(--glow-line);backdrop-filter:blur(2px)}
+.results__play::after{content:"";position:absolute;left:22px;top:16px;border-style:solid;border-width:12px 0 12px 19px;border-color:transparent transparent transparent #fff}
+.results__item--video:hover .results__play{background:var(--gold)}
+.vmodal{position:fixed;inset:0;z-index:250;background:rgba(20,20,18,.88);display:none;align-items:center;justify-content:center;padding:20px}
+.vmodal.open{display:flex}
+.vmodal video{max-width:min(480px,100%);max-height:88vh;border-radius:14px;border:2px solid var(--glow-line);background:#000}
+.vmodal__close{position:absolute;top:14px;right:20px;background:none;border:0;color:#fff;font-size:2.4rem;line-height:1;cursor:pointer}

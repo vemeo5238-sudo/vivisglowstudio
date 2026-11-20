@@ -119,75 +119,45 @@ if (cs) {
   show(0);
 }
 
-// ===== Popup đặt lịch (kiểu web V Angel) – gửi yêu cầu qua tin nhắn tới 760-484-6977 =====
+// ===== Popup đặt lịch: khách gọi trực tiếp hoặc nhắn tin tới 760-484-6977 =====
 (() => {
   const VI = document.documentElement.lang === 'vi';
+  const PHONE = '+17604846977', SHOW = '760-484-6977';
   const T = VI ? {
-    title: 'Đặt lịch hẹn', name: 'Họ và tên', phone: 'Số điện thoại', service: 'Dịch vụ', choose: '— Chọn dịch vụ —',
-    advice: 'Chưa chắc — tôi muốn được tư vấn', date: 'Ngày', time: 'Giờ', note: 'Ghi chú', notePh: 'Kiểu mày, màu môi, kiểu mi bạn thích…',
-    send: 'Gửi yêu cầu đặt lịch', sending: 'Đang gửi…', hint: 'ViVi sẽ gọi hoặc nhắn tin để xác nhận lịch hẹn của bạn.', fail: 'Chưa gửi được qua web. Đang mở tin nhắn tới ViVi để bạn gửi trực tiếp.',
-    done: 'Cảm ơn bạn!', doneTxt: 'ViVi đã nhận được yêu cầu đặt lịch và sẽ gọi hoặc nhắn tin xác nhận sớm nhất.',
-    noSms: 'Không mở được tin nhắn? Gọi hoặc nhắn trực tiếp:', close: 'Đóng', msg: 'Xin chào ViVi, tôi muốn đặt lịch'
+    title: 'Đặt lịch hẹn', lead: 'Gọi hoặc nhắn tin cho ViVi để đặt lịch — ViVi sẽ xác nhận giờ hẹn với bạn.',
+    service: 'Dịch vụ', call: 'Gọi ngay', text: 'Nhắn tin', close: 'Đóng',
+    msg: s => s ? `Xin chào ViVi, tôi muốn đặt lịch ${s}.` : 'Xin chào ViVi, tôi muốn đặt lịch hẹn.'
   } : {
-    title: 'Book an appointment', name: 'Full name', phone: 'Phone number', service: 'Service', choose: '— Choose a service —',
-    advice: "Not sure — I'd like advice", date: 'Date', time: 'Time', note: 'Notes', notePh: 'Brow shape, lip color or lash style you love…',
-    send: 'Request appointment', sending: 'Sending…', hint: 'ViVi will call or text you to confirm your appointment.', fail: "We couldn't send it online — opening a text to ViVi so you can send it directly.",
-    done: 'Thank you!', doneTxt: "We've received your request. ViVi will call or text you to confirm as soon as possible.",
-    noSms: "Text didn't open? Call or text us directly:", close: 'Close', msg: "Hi ViVi, I'd like to book an appointment"
+    title: 'Book an appointment', lead: 'Call or text ViVi to book — she will confirm your appointment time with you.',
+    service: 'Service', call: 'Call Now', text: 'Text Us', close: 'Close',
+    msg: s => s ? `Hi ViVi, I'd like to book ${s}.` : "Hi ViVi, I'd like to book an appointment."
   };
-  const GROUPS = [
-    ['Brows', ['Nano Hairstroke', 'Ombré (Shading)', 'Combo (Nano + Ombré)', 'Brow Enhancements']],
-    ['Lips', ['Lip Blush', 'Dark Lip Neutralization']],
-    ['Lash', ['Classic Full Set', 'Hybrid Full Set', 'Volume Full Set', 'Lash Refill', 'Lash Lift & Tint', '6-Month Lash Membership']],
-    ['Facial', ['Basic Glow Facial', 'Advanced LED Facial', 'Premium Riman Signature Facial']],
-    ['Waxing', ['Face Waxing', 'Body Waxing', 'Bikini & Brazilian', 'Waxing Combos']],
-    ['Eyeliner', ['Lash Line Enhancement', 'Upper Eyeliner', 'Lower Eyeliner', 'Upper + Lower Eyeliner']]
-  ];
-  const times = []; for (let m = 9 * 60; m <= 18 * 60; m += 30) { const h = Math.floor(m / 60), mm = m % 60; times.push(`${(h % 12) || 12}:${String(mm).padStart(2, '0')} ${h < 12 ? 'AM' : 'PM'}`); }
+  const ICON_CALL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>';
+  const ICON_TEXT = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2zm3 6v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2z"/></svg>';
   const wrap = document.createElement('div');
   wrap.innerHTML = `
   <div class="bmodal" id="bookModal" aria-hidden="true">
     <div class="bmodal__backdrop" data-bclose></div>
-    <div class="bmodal__box" role="dialog" aria-modal="true" aria-labelledby="bookTitle">
+    <div class="bmodal__box bmodal__box--contact" role="dialog" aria-modal="true" aria-labelledby="bookTitle">
       <button class="bmodal__close" aria-label="${T.close}" data-bclose>×</button>
       <p class="eyebrow">ViVi's Glow Studio</p>
       <h2 id="bookTitle">${T.title}</h2>
-      <form id="bookForm" class="bform">
-        <label>${T.name}<input type="text" name="name" required autocomplete="name"></label>
-        <label>${T.phone}<input type="tel" name="phone" required pattern="[0-9 ()+\-]{9,18}" autocomplete="tel"></label>
-        <label>${T.service}<select name="service" id="bookService" required>
-          <option value="">${T.choose}</option>
-          ${GROUPS.map(([g, l]) => `<optgroup label="${g}">${l.map(n => `<option>${n}</option>`).join('')}</optgroup>`).join('')}
-          <option>${T.advice}</option>
-        </select></label>
-        <div class="bform__row">
-          <label>${T.date}<input type="date" name="date" id="bookDate" required></label>
-          <label>${T.time}<select name="time" required>${times.map(t => `<option>${t}</option>`).join('')}</select></label>
-        </div>
-        <label>${T.note}<textarea name="note" rows="2" placeholder="${T.notePh}"></textarea></label>
-        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-        <p class="bform__err" id="bookErr" hidden></p>
-        <button type="submit" class="btn btn--gold btn--full">${T.send}</button>
-        <p class="bform__hint">${T.hint}</p>
-      </form>
-      <div class="bdone" id="bookDone" hidden>
-        <h3>${T.done}</h3>
-        <p>${T.doneTxt}</p>
-        <p class="bform__hint">${T.noSms} <a href="tel:+17604846977">760-484-6977</a></p>
-        <button type="button" class="btn btn--outline" data-bclose>${T.close}</button>
+      <p class="bcontact__svc" id="bookSvc" hidden></p>
+      <p class="bcontact__lead">${T.lead}</p>
+      <div class="bcontact__btns">
+        <a href="tel:${PHONE}" class="btn btn--gold bcontact__btn">${ICON_CALL}<span>${T.call}</span></a>
+        <a href="sms:${PHONE}" class="btn btn--sage bcontact__btn" id="bookText">${ICON_TEXT}<span>${T.text}</span></a>
       </div>
+      <a href="tel:${PHONE}" class="bcontact__num">${SHOW}</a>
     </div>
   </div>`;
   document.body.appendChild(wrap.firstElementChild);
-  const modal = document.getElementById('bookModal'), form = document.getElementById('bookForm'),
-        done = document.getElementById('bookDone'), svc = document.getElementById('bookService');
-  const today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
-  document.getElementById('bookDate').min = today.toISOString().split('T')[0];
+  const modal = document.getElementById('bookModal'), svcEl = document.getElementById('bookSvc'), textBtn = document.getElementById('bookText');
+  const ios = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
   const open = service => {
-    form.reset(); form.hidden = false; done.hidden = true;
-    if (service && [...svc.options].some(o => o.value === service)) svc.value = service;
+    svcEl.hidden = !service; svcEl.textContent = service ? `${T.service}: ${service}` : '';
+    textBtn.href = `sms:${PHONE}${ios ? '&' : '?'}body=${encodeURIComponent(T.msg(service))}`;
     modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
-    setTimeout(() => form.querySelector('input').focus(), 60);
   };
   const close = () => { modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; };
   document.addEventListener('click', e => {
@@ -196,32 +166,4 @@ if (cs) {
     if (e.target.closest('[data-bclose]')) close();
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('is-open')) close(); });
-  const ENDPOINT = 'https://vivisglowstudio.com/?rest_route=/vivis/v1/submit';
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-    const d = Object.fromEntries(new FormData(form));
-    if (d._honey) return;
-    const btn = form.querySelector('button[type=submit]'), err = document.getElementById('bookErr');
-    err.hidden = true; btn.disabled = true; const label = btn.textContent; btn.textContent = T.sending;
-    try {
-      const body = new URLSearchParams({ kind: 'booking', name: d.name || '', phone: d.phone || '', service: d.service || '',
-        location: "ViVi's Glow Studio", date: d.date || '', time: d.time || '', message: d.note || '', page: location.href });
-      const r = await fetch(ENDPOINT, { method: 'POST', body });
-      const j = await r.json().catch(() => ({}));
-      if (!r.ok || !j.ok) throw new Error(r.status);
-      form.hidden = true; done.hidden = false;
-    } catch (x) {
-      // Dự phòng: không gửi được qua web thì mở tin nhắn tới ViVi
-      err.textContent = T.fail; err.hidden = false;
-      const dt = new Date(d.date + 'T12:00').toLocaleDateString(VI ? 'vi-VN' : 'en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-      const sms = `${T.msg}:
-• ${T.service}: ${d.service}
-• ${T.date}: ${dt}, ${d.time}
-• ${T.name}: ${d.name}
-• ${T.phone}: ${d.phone}` + (d.note ? `
-• ${T.note}: ${d.note}` : '');
-      const ios = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
-      setTimeout(() => { window.location.href = `sms:+17604846977${ios ? '&' : '?'}body=${encodeURIComponent(sms)}`; }, 1200);
-    } finally { btn.disabled = false; btn.textContent = label; }
-  });
 })();

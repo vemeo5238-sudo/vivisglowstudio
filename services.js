@@ -8,14 +8,34 @@ const RESULTS = [
   { img: "images/pf-6.webp", cap: "Ombré Brows & Lips", cats: ["brows"] },
   { img: "images/pf-7.webp", cap: "From Brow Mapping to Result", cats: ["brows"] },
   { img: "images/pf-8.webp", cap: "Natural Nano Brows", cats: ["brows"] },
-  { img: "images/pf-9.webp", cap: "Lash Line Enhancement", cats: ["eyeliner"] },
-  { img: "images/pf-10.webp", cap: "Upper Eyeliner", cats: ["eyeliner"] },
-  { img: "images/pf-11.webp", cap: "Classic Winged Eyeliner", cats: ["eyeliner"] },
+  { img: "images/eyeliner-r1.webp", cap: "Lash Line Enhancement", cats: ["eyeliner"] },
+  { img: "images/eyeliner-r2.webp", cap: "Upper Eyeliner", cats: ["eyeliner"] },
+  { img: "images/eyeliner-r3.webp", cap: "Classic Winged Eyeliner", cats: ["eyeliner"] },
+  { img: "images/eyeliner-r4.webp", cap: "Soft Upper Eyeliner", cats: ["eyeliner"] },
+  { img: "images/eyeliner-r5.webp", cap: "Defined Upper Eyeliner", cats: ["eyeliner"] },
   { img: "images/pf-12.webp", cap: "Healed Lip Blush", cats: ["lips"] },
   { img: "images/pf-15.webp", cap: "Full Lip Blush", cats: ["lips"] },
   { img: "images/pf-17.webp", cap: "Coral Lip Blush", cats: ["lips"] },
   { img: "images/pf-18.webp", cap: "Fresh Lip Blush", cats: ["lips"] },
   { img: "images/pf-19.webp", cap: "Lip Color Correction", cats: ["lips"] },
+  { img: "images/lips-r1.webp", cap: "Natural Lips – Before", cats: ["lips"] },
+  { img: "images/lips-r2.webp", cap: "Fresh Lip Blush", cats: ["lips"] },
+  { img: "images/lips-r3.webp", cap: "Soft Lip Blush", cats: ["lips"] },
+  { img: "images/lips-r4.webp", cap: "Lip Blush – Fresh & Healed", cats: ["lips"] },
+  { img: "images/lips-r5.webp", cap: "Dark Lip Neutralization", cats: ["lips"] },
+  { img: "images/lips-r6.webp", cap: "Rosy Coral Lips", cats: ["lips"] },
+  { img: "images/lips-r7.webp", cap: "Lip Color Correction", cats: ["lips"] },
+  { img: "images/lips-r8.webp", cap: "Healed Coral Lip Blush", cats: ["lips"] },
+  { img: "images/lips-r9.webp", cap: "Healed Lip Blush", cats: ["lips"] },
+  { img: "images/lips-r10.webp", cap: "Full Lip Color", cats: ["lips"] },
+  { video: "videos/eyeliner-v1.mp4", img: "videos/eyeliner-v1.jpg", cap: "Eyeliner Result", cats: ["eyeliner"] },
+  { video: "videos/eyeliner-v2.mp4", img: "videos/eyeliner-v2.jpg", cap: "Eyeliner Result", cats: ["eyeliner"] },
+  { video: "videos/eyeliner-v3.mp4", img: "videos/eyeliner-v3.jpg", cap: "Eyeliner Result", cats: ["eyeliner"] },
+  { video: "videos/eyeliner-v4.mp4", img: "videos/eyeliner-v4.jpg", cap: "Eyeliner Result", cats: ["eyeliner"] },
+  { video: "videos/eyeliner-v5.mp4", img: "videos/eyeliner-v5.jpg", cap: "Eyeliner Result", cats: ["eyeliner"] },
+  { video: "videos/eyeliner-v6.mp4", img: "videos/eyeliner-v6.jpg", cap: "Eyeliner Result", cats: ["eyeliner"] },
+  { video: "videos/eyeliner-v7.mp4", img: "videos/eyeliner-v7.jpg", cap: "Eyeliner Result", cats: ["eyeliner"] },
+  { video: "videos/eyeliner-v8.mp4", img: "videos/eyeliner-v8.jpg", cap: "Eyeliner Result", cats: ["eyeliner"] },
 ];
 const LABELS = { brows: "Brows", lips: "Lips", lash: "Lash", facial: "Facial", waxing: "Waxing", eyeliner: "Eyeliner" };
 
@@ -33,7 +53,7 @@ const SERVICES = [
   // LIPS
   { cat: "lips", name: "Lip Blush", price: "$449+", time: "Touch-up 6–8 wks · $150", img: "images/lips-blush.webp", badge: "Popular",
     desc: "Natural-looking, rosy lips with soft color custom-blended to your skin tone." },
-  { cat: "lips", name: "Dark Lip Neutralization", price: "$499 – $599+", img: "images/lips-neutral.webp",
+  { cat: "lips", name: "Dark Lip Neutralization", price: "$499 – $599+", img: "images/lips-neutral.webp?v=2",
     desc: "Corrects dark or cool-toned lips for a brighter, even, healthy-looking color." },
   // LASH
   { cat: "lash", name: "Classic Full Set", price: "$135", img: "images/lash-classic.webp?v=2",
@@ -140,7 +160,9 @@ function setFilter(f) {
   if (box) {
     box.hidden = !res.length;
     document.getElementById("resultsTitle").textContent = `${LABELS[f] || ""} — Before & After`;
-    document.getElementById("resultsGrid").innerHTML = res.map(r => `<figure class="results__item"><img src="${r.img}" alt="${esc(r.cap)} – before and after" loading="lazy"><figcaption>${esc(r.cap)}</figcaption></figure>`).join("");
+    document.getElementById("resultsGrid").innerHTML = res.map(r => r.video
+      ? `<figure class="results__item results__item--video" data-video="${r.video}"><img src="${r.img}" alt="${esc(r.cap)} – video" loading="lazy"><span class="results__play" aria-hidden="true"></span><figcaption>${esc(r.cap)}</figcaption></figure>`
+      : `<figure class="results__item"><img src="${r.img}" alt="${esc(r.cap)} – before and after" loading="lazy"><figcaption>${esc(r.cap)}</figcaption></figure>`).join("");
   }
   const act = document.querySelector(`[data-filter="${f}"]`), bar = act.parentElement;
   bar.scrollTo({ left: act.offsetLeft - (bar.clientWidth - act.offsetWidth) / 2, behavior: "smooth" });
@@ -169,6 +191,21 @@ showPrices(start === "all" ? "brows" : start);
 if (start !== "all") window.addEventListener("load", () => setTimeout(() => window.scrollTo({ top: document.getElementById("menu").getBoundingClientRect().top + scrollY - 70, behavior: "smooth" }), 150));
 
 // Phóng to ảnh trước/sau
+// Xem video trước/sau
+const vbox = document.createElement("div");
+vbox.className = "vmodal"; vbox.innerHTML = '<button class="vmodal__close" aria-label="Close">×</button><video controls playsinline></video>';
+document.body.appendChild(vbox);
+const vplayer = vbox.querySelector("video");
+const vclose = () => { vplayer.pause(); vplayer.removeAttribute("src"); vplayer.load(); vbox.classList.remove("open"); document.body.style.overflow = ""; };
+vbox.addEventListener("click", e => { if (e.target !== vplayer) vclose(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && vbox.classList.contains("open")) vclose(); });
+document.addEventListener("click", e => {
+  const vf = e.target.closest(".results__item--video");
+  if (!vf) return;
+  e.stopImmediatePropagation();
+  vplayer.src = vf.dataset.video; vbox.classList.add("open"); document.body.style.overflow = "hidden";
+  vplayer.play().catch(() => {});
+}, true);
 document.addEventListener("click", e => {
   const fig = e.target.closest(".results__item"), lb = document.getElementById("lightbox");
   if (!fig || !lb) return;
