@@ -36,6 +36,23 @@ const RESULTS = [
   { video: "videos/eyeliner-v6.mp4", img: "videos/eyeliner-v6.jpg", cap: "Eyeliner Result", cats: ["eyeliner"] },
   { video: "videos/eyeliner-v7.mp4", img: "videos/eyeliner-v7.jpg", cap: "Eyeliner Result", cats: ["eyeliner"] },
   { video: "videos/eyeliner-v8.mp4", img: "videos/eyeliner-v8.jpg", cap: "Eyeliner Result", cats: ["eyeliner"] },
+  { img: "images/brows-r1.webp", cap: "Fresh Nano Brows", cats: ["brows"] },
+  { img: "images/brows-r2.webp", cap: "Brows – Before & After", cats: ["brows"] },
+  { img: "images/brows-r3.webp", cap: "Cover Brows Correction", cats: ["brows"] },
+  { img: "images/brows-r4.webp", cap: "Soft Natural Brows", cats: ["brows"] },
+  { img: "images/brows-r5.webp", cap: "Defined Ombré Brows", cats: ["brows"] },
+  { img: "images/brows-r6.webp", cap: "Soft Powder Brows", cats: ["brows"] },
+  { img: "images/brows-r7.webp", cap: "Bold Natural Brows", cats: ["brows"] },
+  { img: "images/brows-r8.webp", cap: "Nano Brows – Before & After", cats: ["brows"] },
+  { img: "images/brows-r9.webp", cap: "Brow Transformation", cats: ["brows"] },
+  { img: "images/brows-r10.webp", cap: "Mature Skin Brows", cats: ["brows"] },
+  { img: "images/brows-r11.webp", cap: "Fuller Brows – Before & After", cats: ["brows"] },
+  { img: "images/brows-r12.webp", cap: "Natural Brows for Mature Skin", cats: ["brows"] },
+  { img: "images/lash-r1.webp", cap: "Lash by ViVi – Before & After", cats: ["lash"] },
+  { img: "images/lash-r2.webp", cap: "Volume Lash Set", cats: ["lash"] },
+  { img: "images/lash-r3.webp", cap: "Wispy Hybrid Lashes", cats: ["lash"] },
+  { img: "images/lash-r4.webp", cap: "Classic Lash Set", cats: ["lash"] },
+  { img: "images/lash-r5.webp", cap: "Hybrid Lash Set", cats: ["lash"] },
 ];
 const LABELS = { brows: "Brows", lips: "Lips", lash: "Lash", facial: "Facial", waxing: "Waxing", eyeliner: "Eyeliner" };
 
